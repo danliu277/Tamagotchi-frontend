@@ -5,6 +5,7 @@ const usersURL = 'http://localhost:4000/users'
 const tamagotchisURL = 'http://localhost:4000/tamagotchis'
 const statusesURL = 'http://localhost:4000/statuses'
 const itemsURL = 'http://localhost:4000/items'
+const inventoriesURL = 'http://localhost:4000/inventories'
 // parse incoming data
 const parseData = response => response.json()
 // error handler
@@ -49,5 +50,9 @@ export const getStatus = (statusId) => fetch(`${statusesURL}/${statusId}`)
 
 // Get all items
 export const getAllItems = () => fetch(itemsURL)
+.then(parseData)
+.catch(catchError)
+
+export const getInventory = (statusId) => fetch(`${inventoriesURL}/${statusId}`)
 .then(parseData)
 .catch(catchError)

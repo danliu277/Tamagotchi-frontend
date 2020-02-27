@@ -2,12 +2,11 @@ import React from 'react'
 import Inventory from './Inventory'
 import Shop from './Shop'
 
-function ShopContainer() {
+function ShopContainer(props) {
     return (
         <div>
-            <h1>Shop</h1>
             <Shop />
-            <Inventory />
+            <Inventory items={props.items} />
         </div>
     )
 }
