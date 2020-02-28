@@ -1,12 +1,21 @@
 import React from 'react'
 import Item from '../component/Item'
+import * as requests from '../requests'
 
-const renderItems = (items) => {
-    return items.map(inventory => {
-        return <Item key={inventory.id} {...inventory.item} />
-    })
-}
+
 function Inventory(props) {
+
+    const renderItems = (items) => {
+        return items.map(inventory => {
+            return <Item key={inventory.id} {...inventory.item} quantity={inventory.quantity} clickHandler={sellItem} />
+        })
+    }
+
+    const sellItem = (item_id) => {
+        const newInventory = { status_id: props.status_id, item_id }
+        requests.sellItem(newInventory)
+            .then(inventory => props.updateSellInventory(inventory))
+    }
 
     return (
         <div>

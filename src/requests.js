@@ -53,6 +53,25 @@ export const getAllItems = () => fetch(itemsURL)
 .then(parseData)
 .catch(catchError)
 
+// Get all inventory item
 export const getInventory = (statusId) => fetch(`${inventoriesURL}/${statusId}`)
+.then(parseData)
+.catch(catchError)
+
+// Get buy item
+export const buyItem = (item) => fetch(`${inventoriesURL}/buy`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(item)
+})
+.then(parseData)
+.catch(catchError)
+
+// Get buy item
+export const sellItem = (item) => fetch(`${inventoriesURL}/sell`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(item)
+})
 .then(parseData)
 .catch(catchError)

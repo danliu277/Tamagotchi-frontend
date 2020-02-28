@@ -31,12 +31,59 @@ class MainContainer extends Component {
             .then(inventory => this.setState(() => ({ inventory })))
     }
 
+    updateBuyInventory = (inventory) => {
+        this.setState(state => {
+            const stateInventory = state.inventory.find(inv => inv.id === inventory.id)
+            if(stateInventory) {
+                return {
+                    inventory: state.inventory.map(inv => {
+                        if(inv.id === inventory.id)
+                            return inventory
+                        else
+                            return inv
+                    })
+                }
+            } else {
+                return { inventory: [...state.inventory, inventory]}
+            }
+        })
+    }
+
+    updateSellInventory = (inventory) => {
+        this.setState(state => {
+            const stateInventory = state.inventory.find(inv => inv.id === inventory.id)
+            // debugger
+            if(stateInventory && inventory.quantity > 0) {
+                return {
+                    inventory: state.inventory.map(inv => {
+                        if(inv.id === inventory.id)
+                            return inventory
+                        else
+                            return inv
+                    })
+                }
+            } else if(stateInventory && inventory.quantity === 0){
+                return {
+                    inventory: state.inventory.filter(inv => {
+                        return inv.id !== inventory.id
+                    })
+                }
+            }
+        })
+    }
+
     render() {
         return (
             <div className={this.props.location.pathname.includes('shop') ? 'shop-background' : 'tamagotchi-background'}>
                 <NavBar path={this.props.match.url} pathname={this.props.location.pathname} {...this.state.status} />
                 <Switch>
-                    <Route exact path={`${this.props.match.path}/shop`} render={() => <ShopContainer items={this.state.inventory} />} />
+                    <Route exact path={`${this.props.match.path}/shop`} render={() =>
+                        <ShopContainer 
+                            items={this.state.inventory} 
+                            status_id={this.state.status && this.state.status.id} 
+                            updateBuyInventory={this.updateBuyInventory}
+                            updateSellInventory={this.updateSellInventory} />
+                    } />
                     <Route path="">
                         <TamagotchiView />
                         <TamagotchiStatus {...this.state.status} />

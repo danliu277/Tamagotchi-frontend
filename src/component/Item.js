@@ -3,8 +3,10 @@ import React from 'react'
 function Item(props) {
     return (
         <li>
-            <h3>{props.name}</h3>
-            <img src={props.image} alt={props.name} style={{width: '100px'}}/>
+            <div onClick={() => props.clickHandler(props.id)}>
+                <h3>{props.name.charAt(0).toUpperCase() + props.name.slice(1)} {props.quantity && `X${props.quantity}`}</h3>
+                <img src={props.image} alt={props.name} style={{ width: '100px' }} />
+            </div>
         </li>
     )
 }

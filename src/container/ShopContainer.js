@@ -5,8 +5,8 @@ import Shop from './Shop'
 function ShopContainer(props) {
     return (
         <div>
-            <Shop />
-            <Inventory items={props.items} />
+            <Shop status_id={props.status_id} updateBuyInventory={props.updateBuyInventory} />
+            <Inventory items={props.items} status_id={props.status_id} updateSellInventory={props.updateSellInventory} />
         </div>
     )
 }
