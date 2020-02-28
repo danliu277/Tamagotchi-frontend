@@ -198,3 +198,10 @@ p  {
 .center {
   text-align: center;
 }
+
+.tamagotchi {
+  width: 20%;
+  bottom: 100px;
+  position: absolute;
+  transition: all 2s ease-in-out;
+}

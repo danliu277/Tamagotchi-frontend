@@ -9,7 +9,9 @@ import ShopContainer from './ShopContainer'
 class MainContainer extends Component {
     state = {
         status: null,
-        inventory: []
+        inventory: [],
+        tamagotchi: null,
+        pos: 10
     }
 
     componentDidUpdate(prevProps) {
@@ -22,6 +24,7 @@ class MainContainer extends Component {
             .then(status => {
                 this.setState(() => ({ status }), () => {
                     this.getInventory()
+                    this.getTamagotchi()
                 })
             })
     }
@@ -29,6 +32,11 @@ class MainContainer extends Component {
     getInventory = () => {
         requests.getInventory(this.state.status.id)
             .then(inventory => this.setState(() => ({ inventory })))
+    }
+
+    getTamagotchi = () => {
+        requests.getTamagotchi(this.state.status.tamagotchi_id)
+            .then(tamagotchi => this.setState(() => ({ tamagotchi })))
     }
 
     addToInventory = (inventory) => {
@@ -57,7 +65,7 @@ class MainContainer extends Component {
 
     updateStatus = (name, value) => {
         this.setState(state => {
-            return { status: {...state.status, [name]: value}}
+            return { status: { ...state.status, [name]: value } }
         })
     }
 
@@ -86,14 +94,18 @@ class MainContainer extends Component {
     render() {
         return (
             <div className={this.props.location.pathname.includes('shop') ? 'shop-background' : 'tamagotchi-background'}>
-                <NavBar 
-                    path={this.props.match.url} 
-                    pathname={this.props.location.pathname} 
-                    {...this.state.status} 
+                <NavBar
+                    path={this.props.match.url}
+                    pathname={this.props.location.pathname}
+                    {...this.state.status}
                     inventory={this.state.inventory}
                     removeFromInventory={this.removeFromInventory}
                     updateStatus={this.updateStatus}
                     updateMoney={this.updateMoney} />
+                <img
+                    className="tamagotchi"
+                    src={this.state.tamagotchi && this.state.tamagotchi.image}
+                    />
                 <Switch>
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
                         <ShopContainer

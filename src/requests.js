@@ -34,6 +34,11 @@ export const getAllTamagotchis = () => fetch(`${tamagotchisURL}`)
 .then(parseData)
 .catch(catchError)
 
+// Get tamagotchi
+export const getTamagotchi = (id) => fetch(`${tamagotchisURL}/${id}`)
+.then(parseData)
+.catch(catchError)
+
 // Choose tamagotchi
 export const chooseTamagotchi = (status) => fetch(`${statusesURL}`, {
     method: 'POST',
