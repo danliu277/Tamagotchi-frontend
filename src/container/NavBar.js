@@ -1,7 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import * as requests from '../requests'
 
 function NavBar(props) {
+    const feedItem = (item_id) => {
+        requests.feedItem({ status_id: props.id, item_id})
+            .then(json => {
+                if(json && json.inventory) {
+                    props.removeFromInventory(json.inventory)
+                    props.updateStatus('fullness', json.fullness)
+                }
+            })
+    }
+
+    const playItem = (item_id) => {
+        requests.playItem({ status_id: props.id, item_id})
+            .then(json => {
+                if(json && json.inventory) {
+                    props.removeFromInventory(json.inventory)
+                    props.updateStatus('happiness', json.happiness)
+                }
+            })
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light tamagotchi-navbar">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,14 +45,28 @@ function NavBar(props) {
                     <div className="dropdown">
                         <button className="dropbtn">Feed</button>
                         <div className="dropdown-content">
-                            {props.inventory.filter(inventory => inventory.item.category === 'food').map(inventory => <a href="#" key={inventory.id}> {inventory.item.name} x{inventory.quantity}</a>)}
+                            {
+                                props.inventory.filter(inventory => inventory.item.category === 'food')
+                                    .map(inventory => 
+                                        <a href="#" key={inventory.id} onClick={() => feedItem(inventory.item.id)}> 
+                                            {inventory.item.name} x{inventory.quantity}
+                                        </a>
+                                    )
+                            }
                         </div>
                     </div>
 
                     <div className="dropdown">
                         <button className="dropbtn">Play</button>
                         <div className="dropdown-content">
-                            {props.inventory.filter(inventory => inventory.item.category === 'toy').map(inventory => <a href="#" key={inventory.id}> {inventory.item.name} x{inventory.quantity}</a>)}
+                            {
+                                props.inventory.filter(inventory => inventory.item.category === 'toy')
+                                    .map(inventory => 
+                                        <a href="#" key={inventory.id} onClick={() => playItem(inventory.item.id)}> 
+                                            {inventory.item.name} x{inventory.quantity}
+                                        </a>
+                                    )
+                            }
                         </div>
                     </div>
 

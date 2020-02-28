@@ -58,7 +58,7 @@ export const getInventory = (statusId) => fetch(`${inventoriesURL}/${statusId}`)
 .then(parseData)
 .catch(catchError)
 
-// Get buy item
+// Post buy item
 export const buyItem = (item) => fetch(`${inventoriesURL}/buy`, {
     method: 'POST',
     headers,
@@ -67,8 +67,26 @@ export const buyItem = (item) => fetch(`${inventoriesURL}/buy`, {
 .then(parseData)
 .catch(catchError)
 
-// Get buy item
+// Post sell item
 export const sellItem = (item) => fetch(`${inventoriesURL}/sell`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(item)
+})
+.then(parseData)
+.catch(catchError)
+
+// Post feed
+export const feedItem = (item) => fetch(`${inventoriesURL}/feed`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(item)
+})
+.then(parseData)
+.catch(catchError)
+
+// Post play
+export const playItem = (item) => fetch(`${inventoriesURL}/play`, {
     method: 'POST',
     headers,
     body: JSON.stringify(item)

@@ -29,46 +29,51 @@ class MainContainer extends Component {
     getInventory = () => {
         requests.getInventory(this.state.status.id)
             .then(inventory => this.setState(() => ({ inventory })))
-        }
+    }
 
-    updateBuyInventory = (inventory) => {
+    addToInventory = (inventory) => {
         this.setState(state => {
             const stateInventory = state.inventory.find(inv => inv.id === inventory.id)
-            if(stateInventory) {
+            if (stateInventory) {
                 return {
                     inventory: state.inventory.map(inv => {
-                        if(inv.id === inventory.id)
+                        if (inv.id === inventory.id)
                             return inventory
                         else
                             return inv
                     })
                 }
             } else {
-                return { inventory: [...state.inventory, inventory]}
+                return { inventory: [...state.inventory, inventory] }
             }
         })
     }
 
     updateMoney = (money) => {
         this.setState(state => {
-            return { status: {...state.status, money}}
+            return { status: { ...state.status, money } }
         })
     }
 
-    updateSellInventory = (inventory) => {
+    updateStatus = (name, value) => {
+        this.setState(state => {
+            return { status: {...state.status, [name]: value}}
+        })
+    }
+
+    removeFromInventory = (inventory) => {
         this.setState(state => {
             const stateInventory = state.inventory.find(inv => inv.id === inventory.id)
-            // debugger
-            if(stateInventory && inventory.quantity > 0) {
+            if (stateInventory && inventory.quantity > 0) {
                 return {
                     inventory: state.inventory.map(inv => {
-                        if(inv.id === inventory.id)
+                        if (inv.id === inventory.id)
                             return inventory
                         else
                             return inv
                     })
                 }
-            } else if(stateInventory && inventory.quantity === 0){
+            } else if (stateInventory && inventory.quantity === 0) {
                 return {
                     inventory: state.inventory.filter(inv => {
                         return inv.id !== inventory.id
@@ -81,15 +86,21 @@ class MainContainer extends Component {
     render() {
         return (
             <div className={this.props.location.pathname.includes('shop') ? 'shop-background' : 'tamagotchi-background'}>
-                <NavBar path={this.props.match.url} pathname={this.props.location.pathname} {...this.state.status} inventory={this.state.inventory}/>
+                <NavBar 
+                    path={this.props.match.url} 
+                    pathname={this.props.location.pathname} 
+                    {...this.state.status} 
+                    inventory={this.state.inventory}
+                    removeFromInventory={this.removeFromInventory}
+                    updateStatus={this.updateStatus} />
                 <Switch>
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
-                        <ShopContainer 
-                            items={this.state.inventory} 
-                            status_id={this.state.status && this.state.status.id} 
+                        <ShopContainer
+                            items={this.state.inventory}
+                            status_id={this.state.status && this.state.status.id}
                             money={this.state.status && this.state.status.money}
-                            updateBuyInventory={this.updateBuyInventory}
-                            updateSellInventory={this.updateSellInventory}
+                            addToInventory={this.addToInventory}
+                            removeFromInventory={this.removeFromInventory}
                             updateMoney={this.updateMoney} />
                     } />
                     <Route path="">

@@ -24,7 +24,7 @@ class Shop extends Component {
             requests.buyItem(newInventory)
                 .then(json => {
                     if(json && json.inventory) {
-                        this.props.updateBuyInventory(json.inventory)
+                        this.props.addToInventory(json.inventory)
                         this.props.updateMoney(json.money)
                     }
                 })

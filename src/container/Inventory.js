@@ -16,7 +16,7 @@ function Inventory(props) {
         requests.sellItem(newInventory)
             .then(json => {
                 if(json && json.inventory) {
-                    props.updateSellInventory(json.inventory)
+                    props.removeFromInventory(json.inventory)
                     props.updateMoney(json.money)
                 }
             })
