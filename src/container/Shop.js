@@ -21,7 +21,10 @@ class Shop extends Component {
     buyItem = (item_id) => {
         const newInventory = { status_id: this.props.status_id, item_id }
         requests.buyItem(newInventory)
-            .then(inventory => this.props.updateBuyInventory(inventory))
+            .then(json => {
+                this.props.updateBuyInventory(json.inventory)
+                this.props.updateMoney(json.money)
+            })
     }
 
     render() {

@@ -49,6 +49,12 @@ class MainContainer extends Component {
         })
     }
 
+    updateMoney = (money) => {
+        this.setState(state => {
+            return { status: {...state.status, money}}
+        })
+    }
+
     updateSellInventory = (inventory) => {
         this.setState(state => {
             const stateInventory = state.inventory.find(inv => inv.id === inventory.id)
@@ -82,7 +88,8 @@ class MainContainer extends Component {
                             items={this.state.inventory} 
                             status_id={this.state.status && this.state.status.id} 
                             updateBuyInventory={this.updateBuyInventory}
-                            updateSellInventory={this.updateSellInventory} />
+                            updateSellInventory={this.updateSellInventory}
+                            updateMoney={this.updateMoney} />
                     } />
                     <Route path="">
                         <TamagotchiView />

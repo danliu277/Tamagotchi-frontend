@@ -14,7 +14,10 @@ function Inventory(props) {
     const sellItem = (item_id) => {
         const newInventory = { status_id: props.status_id, item_id }
         requests.sellItem(newInventory)
-            .then(inventory => props.updateSellInventory(inventory))
+            .then(json => {
+                props.updateSellInventory(json.inventory)
+                props.updateMoney(json.money)
+            })
     }
 
     return (
