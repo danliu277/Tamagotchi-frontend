@@ -92,7 +92,8 @@ class MainContainer extends Component {
                     {...this.state.status} 
                     inventory={this.state.inventory}
                     removeFromInventory={this.removeFromInventory}
-                    updateStatus={this.updateStatus} />
+                    updateStatus={this.updateStatus}
+                    updateMoney={this.updateMoney} />
                 <Switch>
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
                         <ShopContainer

@@ -19,6 +19,7 @@ function NavBar(props) {
                 if(json && json.inventory) {
                     props.removeFromInventory(json.inventory)
                     props.updateStatus('happiness', json.happiness)
+                    props.updateMoney(json.money)
                 }
             })
     }
@@ -47,9 +48,9 @@ function NavBar(props) {
                         <div className="dropdown-content">
                             {
                                 props.inventory.filter(inventory => inventory.item.category === 'food')
-                                    .map(inventory => 
+                                    .map(inventory =>
                                         <a href="#" key={inventory.id} onClick={() => feedItem(inventory.item.id)}> 
-                                            {inventory.item.name} x{inventory.quantity}
+                                            {inventory.item.name.charAt(0).toUpperCase() + inventory.item.name.slice(1)} x{inventory.quantity}
                                         </a>
                                     )
                             }
@@ -63,7 +64,7 @@ function NavBar(props) {
                                 props.inventory.filter(inventory => inventory.item.category === 'toy')
                                     .map(inventory => 
                                         <a href="#" key={inventory.id} onClick={() => playItem(inventory.item.id)}> 
-                                            {inventory.item.name} x{inventory.quantity}
+                                            {inventory.item.name.charAt(0).toUpperCase() + inventory.item.name.slice(1)} x{inventory.quantity}
                                         </a>
                                     )
                             }
