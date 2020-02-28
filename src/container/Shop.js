@@ -12,8 +12,8 @@ class Shop extends Component {
             .then(items => this.setState(() => ({ items })))
     }
 
-    renderItems = () => {
-        return this.state.items.map(item => {
+    renderItems = (category) => {
+        return this.state.items.filter(item => item.category === category).map(item => {
             return <Item key={item.id} {...item} clickHandler={this.buyItem} />
         })
     }
@@ -23,8 +23,10 @@ class Shop extends Component {
             const newInventory = { status_id: this.props.status_id, item_id }
             requests.buyItem(newInventory)
                 .then(json => {
-                    this.props.updateBuyInventory(json.inventory)
-                    this.props.updateMoney(json.money)
+                    if(json && json.inventory) {
+                        this.props.updateBuyInventory(json.inventory)
+                        this.props.updateMoney(json.money)
+                    }
                 })
         }
     }
@@ -32,10 +34,11 @@ class Shop extends Component {
     render() {
         return (
             <div className="shop">
-                <h1>Shop</h1>
-                <ul>
-                    {this.renderItems()}
-                </ul>
+                <h1 className="center">Shop</h1>
+                <h2 className="center">Food</h2>
+                {this.renderItems('food')}
+                <h2 className="center">Toys</h2>
+                {this.renderItems('toy')}
             </div>
         )
     }

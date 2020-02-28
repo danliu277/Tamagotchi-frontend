@@ -15,17 +15,17 @@ function Inventory(props) {
         const newInventory = { status_id: props.status_id, item_id }
         requests.sellItem(newInventory)
             .then(json => {
-                props.updateSellInventory(json.inventory)
-                props.updateMoney(json.money)
+                if(json && json.inventory) {
+                    props.updateSellInventory(json.inventory)
+                    props.updateMoney(json.money)
+                }
             })
     }
 
     return (
         <div className="inventory">
-            <h1>Inventory</h1>
-            <ul>
-                {renderItems(props.items)}
-            </ul>
+            <h1 className="center">Inventory</h1>
+            {renderItems(props.items)}
         </div>
     )
 }

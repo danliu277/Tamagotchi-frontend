@@ -2,9 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function NavBar(props) {
-  
-    // const inventory = props.inventory.map(inventory => inventory.item.name)
-
     return (
         <nav className="navbar navbar-expand-lg navbar-light tamagotchi-navbar">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +10,7 @@ function NavBar(props) {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
 
-                    <div class="dropdown">
+                    <div className="dropdown">
                         <button className="dropbtn">
                             {
                                 props.pathname.includes('shop') ?
@@ -24,17 +21,17 @@ function NavBar(props) {
                         </button>
                     </div>
 
-                    <div class="dropdown">
+                    <div className="dropdown">
                         <button className="dropbtn">Feed</button>
                         <div className="dropdown-content">
-                            {props.inventory.filter(inventory => inventory.item.category === 'food').map(inventory => <a href="#"> {inventory.item.name} x{inventory.quantity}</a>)}
+                            {props.inventory.filter(inventory => inventory.item.category === 'food').map(inventory => <a href="#" key={inventory.id}> {inventory.item.name} x{inventory.quantity}</a>)}
                         </div>
                     </div>
 
-                    <div class="dropdown">
+                    <div className="dropdown">
                         <button className="dropbtn">Play</button>
                         <div className="dropdown-content">
-                        {props.inventory.filter(inventory => inventory.item.category === 'toy').map(inventory => <a href="#"> {inventory.item.name} x{inventory.quantity}</a>)}
+                            {props.inventory.filter(inventory => inventory.item.category === 'toy').map(inventory => <a href="#" key={inventory.id}> {inventory.item.name} x{inventory.quantity}</a>)}
                         </div>
                     </div>
 
