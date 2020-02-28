@@ -29,7 +29,7 @@ class MainContainer extends Component {
     getInventory = () => {
         requests.getInventory(this.state.status.id)
             .then(inventory => this.setState(() => ({ inventory })))
-    }
+        }
 
     updateBuyInventory = (inventory) => {
         this.setState(state => {
@@ -81,7 +81,7 @@ class MainContainer extends Component {
     render() {
         return (
             <div className={this.props.location.pathname.includes('shop') ? 'shop-background' : 'tamagotchi-background'}>
-                <NavBar path={this.props.match.url} pathname={this.props.location.pathname} {...this.state.status} />
+                <NavBar path={this.props.match.url} pathname={this.props.location.pathname} {...this.state.status} inventory={this.state.inventory}/>
                 <Switch>
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
                         <ShopContainer 
