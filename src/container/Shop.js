@@ -18,8 +18,8 @@ class Shop extends Component {
         })
     }
 
-    buyItem = (item_id, itemPrice) => {
-        if(this.props.money > this.state.items.find(item => item.id === item_id).price) {
+    buyItem = (item_id) => {
+        if(this.props.money >= this.state.items.find(item => item.id === item_id).price) {
             const newInventory = { status_id: this.props.status_id, item_id }
             requests.buyItem(newInventory)
                 .then(json => {
