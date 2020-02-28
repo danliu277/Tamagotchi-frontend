@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -11,30 +11,63 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  /* font-size: calc(10px + 2vmin); */
+  /* color: white;
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */ 
+
+
+body {
+  color: #000;
+  font-size: 12px;
+  text-align: center;
+}
+
+h1 {
+  color: #000;
+  /* font-family: verdana; */
+  font-size: 300%;
+}
+h2 {
+  color: #000;
+  /* font-family: verdana; */
+  font-size: 300%;
+}
+h3 {
+  color: #000;
+  /* font-family: verdana; */
+  font-size: 300%;
+}
+h4 {
+  color: #000;
+  /* font-family: verdana; */
+  font-size: 300%;
+}
+p  {
+  color: #000;
+  /* font-family: courier; */
+  font-size: 160%;
 }
 
 .tamagotchi-background {
@@ -46,8 +79,24 @@
   background-size: cover;
 }
 
+.item-card {
+  text-align: center;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 120px;
+  height: 120px;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  
+  /* box-shadow: 3px 4px #e04b52 */
+}
+
 .shop-background {
-  background-image: url('https://ak0.picdn.net/shutterstock/videos/16459690/thumb/1.jpg');
+  background-image: url('https://thumbs.dreamstime.com/t/pink-blue-soft-color-mixed-background-painting-art-pastel-abstract-colorful-art-wallpaper-abstract-colorful-bright-color-soft-117208177.jpg');
+  /* background: #fff; */
   height: 100vh;
   width: 100vw;
   background-position: center;
@@ -64,8 +113,12 @@
 /* Dropdown Button */
 .dropbtn {
   background-color: rgba(255, 255, 255, 0.253);
+  /* gradient button */
+  /* background: linear-gradient(to right,#3d6def, #8FADFE); */
   color: #000000;
   min-width: 200px;
+  /* makes it curved */
+  /* border-radius: 4px; */
   padding: 10px;
   font-size: 16px;
   border: 0px;
@@ -107,11 +160,17 @@
 
 .shop {
   color: white;
-  background-color: #5c2500;
-  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
-  border-width: 10px;  
+  background-color: #fff;
+  font-color: #000;
+  /* background-image: url("https://images.all-free-download.com/images/graphicthumb/shiny_shelves_creative_background_vector_art_541730.jpg"); */
+  /* border-width: 10px;   */
   border-style: ridge;
   border-color: #ac801b; 
+  /* height: 100vh; */
+  /* width: 100vw; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .inventory {
