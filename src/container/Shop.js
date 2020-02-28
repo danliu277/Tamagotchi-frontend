@@ -18,18 +18,20 @@ class Shop extends Component {
         })
     }
 
-    buyItem = (item_id) => {
-        const newInventory = { status_id: this.props.status_id, item_id }
-        requests.buyItem(newInventory)
-            .then(json => {
-                this.props.updateBuyInventory(json.inventory)
-                this.props.updateMoney(json.money)
-            })
+    buyItem = (item_id, itemPrice) => {
+        if(this.props.money > this.state.items.find(item => item.id === item_id).price) {
+            const newInventory = { status_id: this.props.status_id, item_id }
+            requests.buyItem(newInventory)
+                .then(json => {
+                    this.props.updateBuyInventory(json.inventory)
+                    this.props.updateMoney(json.money)
+                })
+        }
     }
 
     render() {
         return (
-            <div>
+            <div className="shop">
                 <h1>Shop</h1>
                 <ul>
                     {this.renderItems()}

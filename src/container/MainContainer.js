@@ -87,6 +87,7 @@ class MainContainer extends Component {
                         <ShopContainer 
                             items={this.state.inventory} 
                             status_id={this.state.status && this.state.status.id} 
+                            money={this.state.status && this.state.status.money}
                             updateBuyInventory={this.updateBuyInventory}
                             updateSellInventory={this.updateSellInventory}
                             updateMoney={this.updateMoney} />

@@ -21,7 +21,7 @@ function Inventory(props) {
     }
 
     return (
-        <div>
+        <div className="inventory">
             <h1>Inventory</h1>
             <ul>
                 {renderItems(props.items)}
