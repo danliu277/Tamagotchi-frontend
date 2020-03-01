@@ -1,124 +1,108 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* font-size: calc(10px + 2vmin); */
-  /* color: white;
-} */
-
-/* .App-link {
-  color: #61dafb;
-} */
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */ 
-
-
 body {
   color: #000;
   font-size: 12px;
   text-align: center;
 }
 
+.neon {
+  color: #fff;
+  text-shadow:
+    0 0 5px rgb(243, 242, 243),
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+}
+
+
+.center {
+  text-align: center;
+}
+
 h1 {
   color: #000;
   /* font-family: verdana; */
-  font-size: 300%;
+  /* font-size: %; */
 }
 h2 {
   color: #000;
   /* font-family: verdana; */
-  font-size: 300%;
+  /* font-size: 300%; */
 }
 h3 {
   color: #000;
   /* font-family: verdana; */
-  font-size: 300%;
+  /* font-size: 300%; */
 }
 h4 {
-  color: #000;
+  color: rgba(0, 0, 0, 0.473);
   /* font-family: verdana; */
-  font-size: 300%;
+  /* font-size: 300%; */
 }
 p  {
   color: #000;
   /* font-family: courier; */
-  font-size: 160%;
+  /* font-size: 160%; */
 }
 
-.tamagotchi-background {
-  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cbe4242e-4ae0-4b47-9bb8-4c3b50570f2d/d3le2sj-e7a5083b-9f95-4c76-b6d2-9391155e8fa4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NiZTQyNDJlLTRhZTAtNGI0Ny05YmI4LTRjM2I1MDU3MGYyZFwvZDNsZTJzai1lN2E1MDgzYi05Zjk1LTRjNzYtYjZkMi05MzkxMTU1ZThmYTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.W0NsJYE6JzLzIi8aGkaw1IP4U0KY_RoGrYXZrO0UnBY');
-  height: 100vh;
-  width: 100vw;
+
+/* -------------------------------------------------
+top navbar */
+
+.navbar {
+  font-size: 14px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border: 2px solid #fff;
+  border-style: ridge;
 }
 
-.item-card {
-  text-align: center;
-  background: #fff;
-  color: #000;
-  font-size: 12px;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 120px;
-  height: 120px;
-  display: inline-grid;
-  margin: 1rem 2rem;
-  
-  /* box-shadow: 3px 4px #e04b52 */
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 100%;
+
+-webkit-animation: rainbow 18s ease infinite;
+-z-animation: rainbow 18s ease infinite;
+-o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
 
-.shop-background {
-  background-image: url('https://thumbs.dreamstime.com/t/pink-blue-soft-color-mixed-background-painting-art-pastel-abstract-colorful-art-wallpaper-abstract-colorful-bright-color-soft-117208177.jpg');
-  /* background: #fff; */
-  height: 100vh;
-  width: 100vw;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.tamagotchi-status {
-  position: absolute;
-  bottom: 0px;
-  left: 10px;
-}
+/* ----------------------------------------
+buttons for navbar */
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: rgba(255, 255, 255, 0.253);
-  /* gradient button */
-  /* background: linear-gradient(to right,#3d6def, #8FADFE); */
+  background-color: rgba(255, 255, 255, 0);
   color: #000000;
   min-width: 200px;
-  /* makes it curved */
-  /* border-radius: 4px; */
   padding: 10px;
   font-size: 16px;
   border: 0px;
@@ -143,44 +127,131 @@ p  {
 /* Links inside the dropdown */
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  padding: 10px 10px;
   text-decoration: none;
   display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;
+.dropdown-content a:hover {background-color: rgb(25, 83, 209);
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: rgba(0, 0, 0, 0.11)}
+.dropdown:hover .dropbtn {background-color: rgba(0, 0, 0, 0)}
 
-.shop {
-  color: white;
-  background-color: #fff;
-  font-color: #000;
-  /* background-image: url("https://images.all-free-download.com/images/graphicthumb/shiny_shelves_creative_background_vector_art_541730.jpg"); */
-  /* border-width: 10px;   */
+/* -------------------------------------------------
+bottom .navbar */
+
+.bottom-navbar {
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.11);
+  width: 100%;
+  /* position: absolute; */
+}
+
+.food-toy-navbar {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2px 30px;
+  width: 75%;
+}
+
+.status-navbar {
+  margin: 5px 0px 5px 10px;
+}
+
+.status-bar {
+  font-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  border: 2px solid #fff;
   border-style: ridge;
-  border-color: #ac801b; 
-  /* height: 100vh; */
-  /* width: 100vw; */
+  /* justify-content: bottom; */
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.tamagotchi-status {
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+}
+
+/* arrows */
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+
+/* ------------------------------------------------------------- */
+
+.tamagotchi-background {
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cbe4242e-4ae0-4b47-9bb8-4c3b50570f2d/d3le2sj-e7a5083b-9f95-4c76-b6d2-9391155e8fa4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NiZTQyNDJlLTRhZTAtNGI0Ny05YmI4LTRjM2I1MDU3MGYyZFwvZDNsZTJzai1lN2E1MDgzYi05Zjk1LTRjNzYtYjZkMi05MzkxMTU1ZThmYTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.W0NsJYE6JzLzIi8aGkaw1IP4U0KY_RoGrYXZrO0UnBY');
+  height: 100vh;
+  width: 100vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.shop {
+  background: radial-gradient(circle, rgba(238, 174, 202, 0.548) 0%, rgba(178, 148, 233, 0.705) 100%);
+  border-style: solid;
+  border-color: #fff; 
+}
+
+.shop-background {
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.shop-container {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+}
+
+.mini-shop {
+  
+  border-style: solid;
+  border-color: #fff; 
+}
+
 .inventory {
-  font-size: 10px;
-  color: white;
-  background-color: #3d1500;
-  background-image: url("https://www.transparenttextures.com/patterns/leather.png");
-  border-width: 10px;  
-  border-style: ridge;
-  border-color: #ac801b;
+  background: radial-gradient(circle, rgba(85, 15, 250, 0.436) 0%, rgba(46, 235, 249, 0.654) 100%);
+  border-style: solid;
+  border-color: #fff; 
+  border-color: #fff;
 }
 
 .inventory-card {
@@ -190,11 +261,24 @@ p  {
   align-content: flex-start;
 }
 
-.shop-container {
-  display: grid;
-  grid-template-columns: 3fr 3fr;
+.item-card {
+  text-align: center;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  /* border: grey solid 1px; */
+  padding: 1rem;
+  width: 130px;
+  height: 130px;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  justify-content: center;
+  border-style: ridge;
+  border-color: #fff; 
 }
 
-.center {
-  text-align: center;
+.item-card:hover {
+  box-shadow:
+    0px 0px 50px #1c058698,
+    0px 0px 10px #15bee9dc; 
 }
