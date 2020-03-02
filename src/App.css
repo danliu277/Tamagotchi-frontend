@@ -283,7 +283,12 @@ i {
     0px 0px 10px #15bee9dc; 
 }
 
-
+.tamagotchi {
+  width: 20%;
+  bottom: 100px;
+  position: absolute;
+  transition: all 2s ease-in-out;
+}
 
 
 
@@ -310,14 +315,6 @@ i {
 
 h1 {
   text-align: center;
-}
-
-.tamagotchi {
-  width: 20%;
-  bottom: 100px;
-  position: absolute;
-  transition: all 2s ease-in-out;
-}
   font-size: 2em;
   font-family: sans-serif;
   margin: 20px;

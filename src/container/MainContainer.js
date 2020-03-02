@@ -10,15 +10,15 @@ class MainContainer extends Component {
     state = {
         status: null,
         inventory: [],
-        tamagotchi: null,
-        pos: 10
+        tamagotchi: null
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.user !== this.props.user)
+        if (prevProps.user !== this.props.user){
             this.getStatus()
+        }
     }
-
+    
     getStatus = () => {
         requests.getStatus(this.props.match.params.id)
             .then(status => {
@@ -102,10 +102,6 @@ class MainContainer extends Component {
                     removeFromInventory={this.removeFromInventory}
                     updateStatus={this.updateStatus}
                     updateMoney={this.updateMoney} />
-                <img
-                    className="tamagotchi"
-                    src={this.state.tamagotchi && this.state.tamagotchi.image}
-                    />
                 <Switch>
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
                         <ShopContainer
@@ -117,8 +113,7 @@ class MainContainer extends Component {
                             updateMoney={this.updateMoney} />
                     } />
                     <Route path="">
-                        <TamagotchiView />
-                        <TamagotchiStatus {...this.state.status} inventory={this.state.inventory}/>
+                        <TamagotchiView status={this.state.status} inventory={this.state.inventory} tamagotchi={this.state.tamagotchi} />
                     </Route>
                 </Switch>
             </div>
