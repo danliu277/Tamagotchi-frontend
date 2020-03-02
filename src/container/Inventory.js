@@ -7,7 +7,6 @@ function Inventory(props) {
 
     const renderItems = (items) => {
         return items.map(inventory => {
-            console.log(inventory, 'inventoryitems')
             return <Item key={inventory.id} {...inventory.item} quantity={inventory.quantity} clickHandler={sellItem} />
         })
     }

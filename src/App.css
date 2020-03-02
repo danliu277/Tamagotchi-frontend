@@ -283,20 +283,19 @@ i {
     0px 0px 10px #15bee9dc; 
 }
 
+.action {
+  height: 20vh
+}
+
 .tamagotchi {
-  width: 20%;
+  height: 20vh;
+}
+
+.tamagotchi-wrapper {
   bottom: 100px;
   position: absolute;
   transition: all 2s ease-in-out;
 }
-
-
-
-
-
-
-
-
 
 
 /* 
