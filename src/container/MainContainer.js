@@ -109,7 +109,9 @@ class MainContainer extends Component {
                     path={this.props.match.url}
                     pathname={this.props.location.pathname}
                     {...this.state.status}
-                    inventory={this.state.inventory}/>
+                    inventory={this.state.inventory}
+                    statuses={this.props.statuses}
+                    />
                 <Switch>
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
                         <ShopContainer

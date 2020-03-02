@@ -21,33 +21,18 @@ function NavBar(props) {
                         </button>
                     </div>
 
-                    {/* <div className="dropdown">
-                        <button className="dropbtn">Feed</button>
+                    <div className="dropdown">
+                        <button className="dropbtn">Tamagotchis</button>
                         <div className="dropdown-content">
                             {
-                                props.inventory.filter(inventory => inventory.item.category === 'food')
-                                    .map(inventory =>
-                                        <a href="#" key={inventory.id} onClick={() => feedItem(inventory.item.id)}> 
-                                            {inventory.item.name.charAt(0).toUpperCase() + inventory.item.name.slice(1)} x{inventory.quantity}
-                                        </a>
-                                    )
+                                props.statuses.map(status =>
+                                    <a href={`/status/${status.id}`} key={status.id} >
+                                        {status.nickname}
+                                    </a>
+                                )
                             }
                         </div>
                     </div>
-
-                    <div className="dropdown">
-                        <button className="dropbtn">Play</button>
-                        <div className="dropdown-content">
-                            {
-                                props.inventory.filter(inventory => inventory.item.category === 'toy')
-                                    .map(inventory => 
-                                        <a href="#" key={inventory.id} onClick={() => playItem(inventory.item.id)}> 
-                                            {inventory.item.name.charAt(0).toUpperCase() + inventory.item.name.slice(1)} x{inventory.quantity}
-                                        </a>
-                                    )
-                            }
-                        </div>
-                    </div> */}
 
                 </ul>
                 <div className="form-inline my-2 my-lg-0">

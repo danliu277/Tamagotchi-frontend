@@ -9,7 +9,8 @@ import MainContainer from './container/MainContainer';
 class App extends Component {
   state = {
     login: true,
-    user: null
+    user: null,
+    statuses: []
   }
 
   componentDidMount() {
@@ -22,9 +23,13 @@ class App extends Component {
   }
 
   loginUser = (user) => {
-    console.log("login")
     requests.loginUser(user)
-      .then(user => this.setState(() => ({ user })))
+      .then(user => this.setState(() => ({ user }), () => this.getStatuses()))
+  }
+
+  getStatuses = () => {
+    requests.getUserStatuses(this.state.user.id)
+      .then(statuses => this.setState(() => ({ statuses })))
   }
 
   toggleLogin = () => {
@@ -50,7 +55,7 @@ class App extends Component {
             {this.renderForm()}
           </Route>
           <Route path='/status/:id' render={(routerProps) =>
-            <MainContainer user={this.state.user} {...routerProps} />
+            <MainContainer user={this.state.user} {...routerProps} statuses={this.state.statuses} />
           } />
         </Switch>
       </>

@@ -29,7 +29,7 @@ class TamagotchiView extends Component {
                 }
                 return { left: position }
             })
-        }, 1000)
+        }, 3000)
     }
 
     componentWillUnmount() {

@@ -98,3 +98,8 @@ export const playItem = (item) => fetch(`${inventoriesURL}/play`, {
 })
 .then(parseData)
 .catch(catchError)
+
+// Get user statuses
+export const getUserStatuses = (userId) => fetch(`${statusesURL}/user/${userId}`)
+.then(parseData)
+.catch(catchError)
