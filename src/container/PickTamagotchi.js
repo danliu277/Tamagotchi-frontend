@@ -20,8 +20,8 @@ class PickTamagotchi extends Component {
         })
     }
 
-    chooseTamagotchi = (tamagotchi_id) => {
-        requests.chooseTamagotchi({user_id: this.props.user.id, tamagotchi_id })
+    chooseTamagotchi = (tamagotchi_id, nickname) => {
+        requests.chooseTamagotchi({user_id: this.props.user.id, tamagotchi_id, nickname })
             .then((status) => this.props.history.push(`/status/${status.id}`))
     }
 
