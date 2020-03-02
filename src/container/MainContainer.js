@@ -10,15 +10,16 @@ class MainContainer extends Component {
     state = {
         status: null,
         inventory: [],
-        tamagotchi: null
+        tamagotchi: null,
+        interval: 0
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.user !== this.props.user){
+        if (prevProps.user !== this.props.user) {
             this.getStatus()
         }
     }
-    
+
     getStatus = () => {
         requests.getStatus(this.props.match.params.id)
             .then(status => {
@@ -27,6 +28,17 @@ class MainContainer extends Component {
                     this.getTamagotchi()
                 })
             })
+        const interval = setInterval(() => {
+            requests.getStatus(this.props.match.params.id)
+                .then(status => {
+                    this.setState(() => ({ status }))
+                })
+        }, 10000)
+        this.setState(() => ({ interval }))
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.interval)
     }
 
     getInventory = () => {
