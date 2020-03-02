@@ -36,7 +36,7 @@ function NavBar(props) {
 
                 </ul>
                 <div className="form-inline my-2 my-lg-0">
-                    ${props.money}
+                    <h3 className='neon'>${props.money}</h3>
                 </div>
             </div>
         </nav>

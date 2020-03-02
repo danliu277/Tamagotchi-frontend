@@ -19,11 +19,11 @@ class Shop extends Component {
     }
 
     buyItem = (item_id) => {
-        if(this.props.money >= this.state.items.find(item => item.id === item_id).price) {
+        if (this.props.money >= this.state.items.find(item => item.id === item_id).price) {
             const newInventory = { status_id: this.props.status_id, item_id }
             requests.buyItem(newInventory)
                 .then(json => {
-                    if(json && json.inventory) {
+                    if (json && json.inventory) {
                         this.props.addToInventory(json.inventory)
                         this.props.updateMoney(json.money)
                     }
@@ -33,15 +33,15 @@ class Shop extends Component {
 
     render() {
         return (
-            <div className='shop' >
+            <div className='shop scroll scroll3' >
                 <h3 className=''>Tamagotchi Store</h3>
-                <div className='food '>
-                <h4 className="center">Food</h4>
-                {this.renderItems('food')}
+                <div className=''>
+                    <h4 className="center">Food</h4>
+                    {this.renderItems('food')}
                 </div>
-                <div className='toys'>
-                <h4 className="center">Toys</h4>
-                {this.renderItems('toy')}
+                <div>
+                    <h4 className="center">Toys</h4>
+                    {this.renderItems('toy')}
                 </div>
             </div>
         )
