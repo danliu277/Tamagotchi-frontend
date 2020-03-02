@@ -48,7 +48,7 @@ class App extends Component {
       <>
         <Switch>
           <Route path='/tamagotchis' render={(routerProps) =>
-            <PickTamagotchi user={this.state.user} {...routerProps} />
+            <PickTamagotchi user={this.state.user} {...routerProps} getStatuses={this.getStatuses} />
           } />
           <Route path='/user'>
             <button onClick={this.toggleLogin}>{this.state.login ? 'Create User' : 'Login'}</button>
