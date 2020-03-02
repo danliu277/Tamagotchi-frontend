@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function NavBar(props) {
+    const adoptRoute = () => {
+        props.history.push(`/tamagotchis`)
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light tamagotchi-navbar sticky">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +36,10 @@ function NavBar(props) {
                                 )
                             }
                         </div>
+                    </div>
+
+                    <div className="dropdown">
+                        <button className="dropbtn" onClick={() => adoptRoute()}>Adopt Tamagotchis</button>
                     </div>
 
                 </ul>

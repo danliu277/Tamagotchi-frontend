@@ -13,10 +13,8 @@ class MainContainer extends Component {
         interval: 0
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.user !== this.props.user) {
-            this.getStatus()
-        }
+    componentDidMount() {
+        this.getStatus()
     }
 
     getStatus = () => {
@@ -108,6 +106,7 @@ class MainContainer extends Component {
                 <NavBar
                     path={this.props.match.url}
                     pathname={this.props.location.pathname}
+                    history={this.props.history}
                     {...this.state.status}
                     inventory={this.state.inventory}
                     statuses={this.props.statuses}
