@@ -1,29 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import * as requests from '../requests'
 
 function NavBar(props) {
-    const feedItem = (item_id) => {
-        requests.feedItem({ status_id: props.id, item_id})
-            .then(json => {
-                if(json && json.inventory) {
-                    props.removeFromInventory(json.inventory)
-                    props.updateStatus('fullness', json.fullness)
-                }
-            })
-    }
-
-    const playItem = (item_id) => {
-        requests.playItem({ status_id: props.id, item_id})
-            .then(json => {
-                if(json && json.inventory) {
-                    props.removeFromInventory(json.inventory)
-                    props.updateStatus('happiness', json.happiness)
-                    props.updateMoney(json.money)
-                }
-            })
-    }
-
     return (
         <nav className="navbar navbar-expand-lg navbar-light tamagotchi-navbar sticky">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +21,7 @@ function NavBar(props) {
                         </button>
                     </div>
 
-                    <div className="dropdown">
+                    {/* <div className="dropdown">
                         <button className="dropbtn">Feed</button>
                         <div className="dropdown-content">
                             {
@@ -51,7 +29,6 @@ function NavBar(props) {
                                     .map(inventory =>
                                         <a href="#" key={inventory.id} onClick={() => feedItem(inventory.item.id)}> 
                                             {inventory.item.name.charAt(0).toUpperCase() + inventory.item.name.slice(1)} x{inventory.quantity}
-                                            {/* <img src={inventory.item.image} style={{width: '50px'}}/> */}
                                         </a>
                                     )
                             }
@@ -70,7 +47,7 @@ function NavBar(props) {
                                     )
                             }
                         </div>
-                    </div>
+                    </div> */}
 
                 </ul>
                 <div className="form-inline my-2 my-lg-0">

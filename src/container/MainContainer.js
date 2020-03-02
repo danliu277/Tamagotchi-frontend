@@ -110,10 +110,7 @@ class MainContainer extends Component {
                     path={this.props.match.url}
                     pathname={this.props.location.pathname}
                     {...this.state.status}
-                    inventory={this.state.inventory}
-                    removeFromInventory={this.removeFromInventory}
-                    updateStatus={this.updateStatus}
-                    updateMoney={this.updateMoney} />
+                    inventory={this.state.inventory}/>
                 <Switch>
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
                         <ShopContainer
@@ -125,7 +122,13 @@ class MainContainer extends Component {
                             updateMoney={this.updateMoney} />
                     } />
                     <Route path="">
-                        <TamagotchiView status={this.state.status} inventory={this.state.inventory} tamagotchi={this.state.tamagotchi} />
+                        <TamagotchiView 
+                            status={this.state.status} 
+                            inventory={this.state.inventory} 
+                            tamagotchi={this.state.tamagotchi}
+                            removeFromInventory={this.removeFromInventory}
+                            updateStatus={this.updateStatus}
+                            updateMoney={this.updateMoney}  />
                     </Route>
                 </Switch>
             </div>

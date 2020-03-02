@@ -51,7 +51,12 @@ class TamagotchiView extends Component {
                         src={this.props.tamagotchi && this.props.tamagotchi.image}
                     />
                 </div>
-                <TamagotchiStatus {...this.props.status} inventory={this.props.inventory} />
+                <TamagotchiStatus 
+                    {...this.props.status} 
+                    inventory={this.props.inventory}
+                    removeFromInventory={this.props.removeFromInventory}
+                    updateStatus={this.props.updateStatus}
+                    updateMoney={this.props.updateMoney}  />
             </>
         )
     }

@@ -1,7 +1,5 @@
 import React from 'react'
-
-
-
+import * as requests from '../requests'
 
 class TamagotchiStatus extends React.Component {
     state = {
@@ -61,14 +59,32 @@ class TamagotchiStatus extends React.Component {
         })
     }
 
+    feedItem = (item_id) => {
+        requests.feedItem({ status_id: this.props.id, item_id})
+            .then(json => {
+                if(json && json.inventory) {
+                    this.props.removeFromInventory(json.inventory)
+                    this.props.updateStatus('fullness', json.fullness)
+                }
+            })
+    }
+
+    playItem = (item_id) => {
+        requests.playItem({ status_id: this.props.id, item_id})
+            .then(json => {
+                if(json && json.inventory) {
+                    this.props.removeFromInventory(json.inventory)
+                    this.props.updateStatus('happiness', json.happiness)
+                    this.props.updateMoney(json.money)
+                }
+            })
+    }
 
     render() {
-
         return (
             <nav className="status-bar tamagotchi-status navbar-expand-lg navbar-light tamagotchi-navbar bottom-navbar">
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <div className=''>
-
                         <ul className="navbar-nav mr-auto">
                             <div className='status-navbar'>
                                 <div>
@@ -82,11 +98,11 @@ class TamagotchiStatus extends React.Component {
                     </div>
                     <div className='food-toy-navbar'>
                         <button className="btn-4" onClick={this.handleLeftFood}>{'<<'}</button>
-                            {this.displayFoods().map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />)}
+                            {this.displayFoods().map(inventory => <img key={inventory.id} onClick={() => this.feedItem(inventory.item.id)} src={inventory.item.image} style={{ height: '40px' }} />)}
                         <button className="btn-4" onClick={this.handleRightFood}>{'>>'}</button>
 
                         <button className="btn-4" onClick={this.handleLeftToy}>{'<<'}</button>
-                        {this.displayToys().map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />)}
+                        {this.displayToys().map(inventory => <img key={inventory.id} onClick={() => this.playItem(inventory.item.id)} src={inventory.item.image} style={{ height: '40px' }} />)}
                         <button className="btn-4" onClick={this.handleRightToy}>{'>>'}</button>
                     </div>
                 </div>
