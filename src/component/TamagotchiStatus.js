@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemStatus from './ItemStatus'
 
 
 
@@ -81,9 +82,25 @@ class TamagotchiStatus extends React.Component {
                         </ul>
                     </div>
                     <div className='food-toy-navbar'>
+
+
                         <button className="btn-4" onClick={this.handleLeftFood}>{'<<'}</button>
-                            {this.displayFoods().map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />)}
+
+
+
+                        {this.displayFoods().map(inventory => <ItemStatus key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)}
                         <button className="btn-4" onClick={this.handleRightFood}>{'>>'}</button>
+
+
+
+
+
+
+
+
+
+
+
 
                         <button className="btn-4" onClick={this.handleLeftToy}>{'<<'}</button>
                         {this.displayToys().map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />)}
