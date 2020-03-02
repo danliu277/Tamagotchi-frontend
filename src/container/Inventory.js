@@ -26,7 +26,7 @@ function Inventory(props) {
 
     return (
         <div className="inventory scroll scroll3">
-            <h3 className="center">Inventory</h3>
+            <h3 className="center">INVENTORY</h3>
             {/* {renderItems(props.items)} */}
             <div className=''>
                 <h4 className="center">Food</h4>
