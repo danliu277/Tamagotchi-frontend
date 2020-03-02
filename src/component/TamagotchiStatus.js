@@ -15,7 +15,7 @@ class TamagotchiStatus extends React.Component {
         const array = []
         const toys = this.props.inventory.filter(inventory => inventory.item.category === 'toy')
         this.state.toy.forEach(index => {
-            if (toys[index])
+            if (toys[index] && !array.includes(toys[index]))
                 array.push(toys[index])
         })
         return array
@@ -41,11 +41,12 @@ class TamagotchiStatus extends React.Component {
         const array = []
         const foods = this.props.inventory.filter(inventory => inventory.item.category === 'food')
         this.state.food.forEach(index => {
-            if (foods[index])
+            if (foods[index] && !array.includes(foods[index]))
                 array.push(foods[index])
         })
         return array
     }
+
 
     handleRightFood = () => {
         this.setState(state => {
