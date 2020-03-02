@@ -179,7 +179,7 @@ bottom .navbar */
 .tamagotchi-status {
   position: absolute;
   bottom: 0px;
-  left: 10px;
+  /* left: 10px; */
 }
 
 /* arrows */
