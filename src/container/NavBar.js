@@ -25,7 +25,7 @@ function NavBar(props) {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light tamagotchi-navbar">
+        <nav className="navbar navbar-expand-lg navbar-light tamagotchi-navbar sticky">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -51,6 +51,7 @@ function NavBar(props) {
                                     .map(inventory =>
                                         <a href="#" key={inventory.id} onClick={() => feedItem(inventory.item.id)}> 
                                             {inventory.item.name.charAt(0).toUpperCase() + inventory.item.name.slice(1)} x{inventory.quantity}
+                                            {/* <img src={inventory.item.image} style={{width: '50px'}}/> */}
                                         </a>
                                     )
                             }

@@ -33,14 +33,15 @@ class Shop extends Component {
 
     render() {
         return (
-            <div className="shop">
-                <h2 className="center">Tamagotchi Store</h2>
-                <div className='food'>
-                <h3 className="center">Food</h3>
+            <div className='shop scroll scroll5' >
+               
+                <h3 className=''>Tamagotchi Store</h3>
+                <div className='food '>
+                <h4 className="center">Food</h4>
                 {this.renderItems('food')}
                 </div>
                 <div className='toys'>
-                <h3 className="center">Toys</h3>
+                <h4 className="center">Toys</h4>
                 {this.renderItems('toy')}
                 </div>
             </div>

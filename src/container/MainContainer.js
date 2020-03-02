@@ -118,7 +118,7 @@ class MainContainer extends Component {
                     } />
                     <Route path="">
                         <TamagotchiView />
-                        <TamagotchiStatus {...this.state.status} />
+                        <TamagotchiStatus {...this.state.status} inventory={this.state.inventory}/>
                     </Route>
                 </Switch>
             </div>
