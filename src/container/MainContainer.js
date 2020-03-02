@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import * as requests from '../requests'
 import { Route, Switch } from 'react-router-dom'
-import TamagotchiStatus from '../component/TamagotchiStatus'
 import TamagotchiView from '../component/TamagotchiView'
 import NavBar from './NavBar'
 import ShopContainer from './ShopContainer'

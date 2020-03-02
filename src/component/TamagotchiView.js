@@ -42,13 +42,16 @@ class TamagotchiView extends Component {
                     <div>
                         {/* <img
                             className="action"
-                            src="https://media.giphy.com/media/4JXQArc0SQlh5diE9B/giphy.gif" /> */}
+                            src="https://media.giphy.com/media/4JXQArc0SQlh5diE9B/giphy.gif" />
+                            alt="heart" */}
                             <img className="action"
-                                src="https://media.giphy.com/media/1xoZQOOU9gxStyVtab/giphy.gif" />
+                                src="https://media.giphy.com/media/1xoZQOOU9gxStyVtab/giphy.gif"
+                                alt="eat" />
                     </div>
                     <img
                         className="tamagotchi"
                         src={this.props.tamagotchi && this.props.tamagotchi.image}
+                        alt="tamagotchi"
                     />
                 </div>
                 <TamagotchiStatus 
