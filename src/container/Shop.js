@@ -33,8 +33,7 @@ class Shop extends Component {
 
     render() {
         return (
-            <div className='shop scroll scroll5' >
-               
+            <div className='shop' >
                 <h3 className=''>Tamagotchi Store</h3>
                 <div className='food '>
                 <h4 className="center">Food</h4>
