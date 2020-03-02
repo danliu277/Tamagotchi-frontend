@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import TamagotchiStatus from './TamagotchiStatus'
+import * as requests from '../requests'
 
 class TamagotchiView extends Component {
     state = {
         left: 50,
-        interval: 0
+        interval: 0,
+        eat: false,
+        play: false
     }
 
     componentDidMount() {
@@ -33,6 +36,45 @@ class TamagotchiView extends Component {
         clearInterval(this.state.interval)
     }
 
+
+    feedItem = (item_id) => {
+        requests.feedItem({ status_id: this.props.status.id, item_id })
+            .then(json => {
+                if (json && json.inventory) {
+                    this.props.removeFromInventory(json.inventory)
+                    this.props.updateStatus('fullness', json.fullness)
+                }
+                this.toggleEat()
+                setTimeout(() => {
+                    this.toggleEat()
+                }, 1500)
+            })
+
+    }
+
+    toggleEat = () => {
+        this.setState(state => ({ eat: !state.eat }))
+    }
+
+    playItem = (item_id) => {
+        requests.playItem({ status_id: this.props.status.id, item_id })
+            .then(json => {
+                if (json && json.inventory) {
+                    this.props.removeFromInventory(json.inventory)
+                    this.props.updateStatus('happiness', json.happiness)
+                    this.props.updateMoney(json.money)
+                }
+                this.togglePlay()
+                setTimeout(() => {
+                    this.togglePlay()
+                }, 1500)
+            })
+    }
+
+    togglePlay = () => {
+        this.setState(state => ({ play: !state.play }))
+    }
+
     render() {
         return (
             <>
@@ -40,13 +82,13 @@ class TamagotchiView extends Component {
                     className="tamagotchi-wrapper"
                     style={{ left: `${this.state.left}%` }}>
                     <div>
-                        {/* <img
+                        {this.state.play && <img
                             className="action"
-                            src="https://media.giphy.com/media/4JXQArc0SQlh5diE9B/giphy.gif" />
-                            alt="heart" */}
-                            <img className="action"
-                                src="https://media.giphy.com/media/1xoZQOOU9gxStyVtab/giphy.gif"
-                                alt="eat" />
+                            src="https://media.giphy.com/media/4JXQArc0SQlh5diE9B/giphy.gif"
+                            alt="heart" />}
+                        {this.state.eat && <img className="action"
+                            src="https://media.giphy.com/media/1xoZQOOU9gxStyVtab/giphy.gif"
+                            alt="eat" />}
                     </div>
                     <img
                         className="tamagotchi"
@@ -54,12 +96,11 @@ class TamagotchiView extends Component {
                         alt="tamagotchi"
                     />
                 </div>
-                <TamagotchiStatus 
-                    {...this.props.status} 
+                <TamagotchiStatus
+                    {...this.props.status}
                     inventory={this.props.inventory}
-                    removeFromInventory={this.props.removeFromInventory}
-                    updateStatus={this.props.updateStatus}
-                    updateMoney={this.props.updateMoney}  />
+                    feedItem={this.feedItem}
+                    playItem={this.playItem} />
             </>
         )
     }

@@ -1,9 +1,5 @@
 import React from 'react'
-import * as requests from '../requests'
 import ItemStatus from './ItemStatus'
-
-
-
 
 class TamagotchiStatus extends React.Component {
     state = {
@@ -64,27 +60,6 @@ class TamagotchiStatus extends React.Component {
         })
     }
 
-    feedItem = (item_id) => {
-        requests.feedItem({ status_id: this.props.id, item_id})
-            .then(json => {
-                if(json && json.inventory) {
-                    this.props.removeFromInventory(json.inventory)
-                    this.props.updateStatus('fullness', json.fullness)
-                }
-            })
-    }
-
-    playItem = (item_id) => {
-        requests.playItem({ status_id: this.props.id, item_id})
-            .then(json => {
-                if(json && json.inventory) {
-                    this.props.removeFromInventory(json.inventory)
-                    this.props.updateStatus('happiness', json.happiness)
-                    this.props.updateMoney(json.money)
-                }
-            })
-    }
-
     render() {
         return (
             <nav className="status-bar tamagotchi-status navbar-expand-lg navbar-light tamagotchi-navbar bottom-navbar">
@@ -103,10 +78,10 @@ class TamagotchiStatus extends React.Component {
                     </div>
                     <div className='food-toy-navbar'>
                         <button className="btn-4" onClick={this.handleLeftFood}>{'<<'}</button>
-                            {this.displayFoods().map(inventory => <ItemStatus handleClick = {this.feedItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)}
+                            {this.displayFoods().map(inventory => <ItemStatus handleClick = {this.props.feedItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)}
                         <button className="btn-4" onClick={this.handleRightFood}>{'>>'}</button>
                         <button className="btn-4" onClick={this.handleLeftToy}>{'<<'}</button>
-                            {this.displayToys().map(inventory => <ItemStatus handleClick = {this.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)}
+                            {this.displayToys().map(inventory => <ItemStatus handleClick = {this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)}
                         <button className="btn-4" onClick={this.handleRightToy}>{'>>'}</button>
                     </div>
                 </div>
