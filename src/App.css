@@ -18,9 +18,15 @@ body {
     0 0 150px #0ff;
 }
 
-
 .center {
   text-align: center;
+}
+
+.center-image {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
@@ -434,4 +440,67 @@ button:hover {
   bottom: 100%;
   -webkit-transition-delay: 0s;
   transition-delay: 0s;
+}
+
+
+/* -----------------------------------------choose tamagotchi */
+
+.choose-tamagotchi {
+  background: radial-gradient(circle, rgba(223,126,235,1) 0%, rgba(25,8,128,0.41360294117647056) 100%);
+
+}
+
+.tamagotchi-card {
+  /* display: flex; */
+  text-align: center;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  /* border: grey solid 1px; */
+  padding: 1rem;
+  width: 300px;
+  height: 300px;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  justify-content: center;
+  border-style: ridge;
+  border-color: #fff; 
+}
+
+.tamagotchi-card:hover {
+  box-shadow:
+    0px 0px 50px #1c058698,
+    0px 0px 10px #15bee9dc; 
+}
+
+.button {
+  background: none;
+  color: rgb(236, 89, 170);
+  font-size: 12px;
+  border: 2px solid rgba(236, 89, 170, 0.384);
+  border-radius: 4px;
+}
+
+
+.button:hover {
+  color: #fff;
+  background: rgb(236, 89, 170);
+}
+
+input[type=text] {
+  background-color: #fff;
+  color: rgb(236, 89, 170);
+  box-sizing: border-box;
+  border: 2px solid rgba(236, 89, 170, 0.384);
+  border-radius: 4px;
+}
+
+input[type=text]:focus {
+  outline: 2px solid rgb(236, 89, 170);
+  background-color: white;
+}
+
+input[type=submit]:focus {
+  outline: 2px solid rgb(236, 89, 170);
+  background-color: white;
 }

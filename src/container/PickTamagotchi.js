@@ -30,8 +30,8 @@ class PickTamagotchi extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Choose Your Tamagotchi</h1>
+            <div className='choose-tamagotchi'>
+                <h1 className='neon'>Adopt Your Tamagotchi</h1>
                 { this.renderTamagotchi() }
             </div>
         )
