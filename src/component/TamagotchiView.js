@@ -10,26 +10,37 @@ class TamagotchiView extends Component {
         play: false
     }
 
-    componentDidMount() {
-        const intervalId = this.movement()
-        this.setState((state) => ({ interval: intervalId }))
+    // componentDidMount() {
+    //     const intervalId = this.movement()
+    //     this.setState((state) => ({ interval: intervalId }))
+    // }
+
+    componentDidUpdate(prop) {
+        if (this.props && !prop.status && this.props.status) {
+            const intervalId = this.movement()
+            this.setState((state) => ({ interval: intervalId }))
+        }
     }
 
     movement = () => {
-        return setInterval(() => {
-            this.setState(state => {
-                let position = state.left
-                if (position >= 80)
-                    position -= 10
-                if (position <= 10)
-                    position += 10
-                else {
-                    let direction = Math.round(Math.random()) ? 1 : -1
-                    position += (10 * direction)
-                }
-                return { left: position }
-            })
-        }, 3000)
+        if (this.props.status.fullness > 0) {
+            return setInterval(() => {
+                this.setState(state => {
+                    let position = state.left
+                    if (position >= 80)
+                        position -= 10
+                    if (position <= 10)
+                        position += 10
+                    else {
+                        let direction = Math.round(Math.random()) ? 1 : -1
+                        position += (10 * direction)
+                    }
+                    return { left: position }
+                })
+            }, 3000)
+        } else {
+            return 0
+        }
     }
 
     componentWillUnmount() {
@@ -75,12 +86,10 @@ class TamagotchiView extends Component {
         this.setState(state => ({ play: !state.play }))
     }
 
-    render() {
-        return (
-            <>
-                <div
-                    className="tamagotchi-wrapper"
-                    style={{ left: `${this.state.left}%` }}>
+    renderTamagotchi = () => {
+        if (this.props.status && this.props.status.fullness > 0) {
+            return (
+                <>
                     <div>
                         {this.state.play && <img
                             className="action"
@@ -95,6 +104,26 @@ class TamagotchiView extends Component {
                         src={this.props.tamagotchi && this.props.tamagotchi.image}
                         alt="tamagotchi"
                     />
+                </>
+            )
+        } else {
+            return (
+                <img
+                    className="tamagotchi"
+                    src="https://i.ya-webdesign.com/images/transparent-grave-kawaii.png"
+                    alt="tombstone" />
+            )
+        }
+    }
+
+    render() {
+        return (
+            <>
+
+                <div
+                    className="tamagotchi-wrapper"
+                    style={{ left: `${this.state.left}%` }}>
+                    {this.renderTamagotchi()}
                 </div>
                 <TamagotchiStatus
                     {...this.props.status}

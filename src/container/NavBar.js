@@ -29,9 +29,13 @@ function NavBar(props) {
                         <button className="dropbtn">Tamagotchis</button>
                         <div className="dropdown-content">
                             {
-                                props.statuses.map(status =>
+                                props.statuses.sort((a, b) => {
+                                    if(a.fullness === 0)
+                                        return 1
+                                    return -1
+                                }).map(status =>
                                     <a href={`/status/${status.id}`} key={status.id} >
-                                        {status.nickname}
+                                        {status.nickname} {!status.fullness && '☠️'}
                                     </a>
                                 )
                             }
