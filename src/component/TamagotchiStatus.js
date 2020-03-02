@@ -19,11 +19,11 @@ function TamagotchiStatus(props) {
                 </div>
                 <div className='food-toy-navbar'>
                     <button className="btn-4">{'<<'}</button>
-                    {props.inventory.filter(inventory => inventory.item.category === 'food').map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />)}
+                    {props.inventory.filter(inventory => inventory.item.category === 'food').map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />).slice(0,3)}
 
                     <button className="btn-4">{'>>'}</button>
                     <button className="btn-4">{'<<'}</button>
-                    {props.inventory.filter(inventory => inventory.item.category === 'toy').map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />)}
+                    {props.inventory.filter(inventory => inventory.item.category === 'toy').map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />).slice(0,3)}
                     <button className="btn-4">{'>>'}</button>
                 </div>
             </div>
