@@ -21,17 +21,17 @@ function TamagotchiStatus(props) {
                 </ul>
                     </div>
                 <div className='food-toy-navbar'>
-                <div className='food item-space'>
-                    <i className="arrow left"/>
-                    {props.inventory.filter(inventory => inventory.item.category === 'food').map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />)}
+                {/* <div className='food'> */}
+                    <button className="btn-4">{'<<'}</button>
+                    {props.inventory.filter(inventory => inventory.item.category === 'food').map(inventory => <img src={inventory.item.image} style={{ height: '40px' }} />)}
                     {/* {props.inventory.filter(inventory => inventory.item.category === 'food').map(inventory => inventory.quantity)} */}
-                    <i className="arrow right"/>
-                </div>
-                <div className='toy'>
-                    <i className="arrow left"/>
-                    {props.inventory.filter(inventory => inventory.item.category === 'toy').map(inventory => <img key={inventory.id} src={inventory.item.image} style={{ height: '40px' }} />)}
-                    <i className="arrow right"/>
-                </div>
+                    <button class="btn-4">{'>>'}</button>
+                {/* </div> */}
+                {/* <div className='toy'> */}
+                    <button className="btn-4">{'<<'}</button>
+                    {props.inventory.filter(inventory => inventory.item.category === 'toy').map(inventory => <img src={inventory.item.image} style={{ height: '40px' }} />)}
+                    <button class="btn-4">{'>>'}</button>
+                {/* </div> */}
                 </div>
                 {/* <div className="form-inline my-2 my-lg-0">
                     ${props.money}
