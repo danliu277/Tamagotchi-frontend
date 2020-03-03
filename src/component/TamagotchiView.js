@@ -20,6 +20,9 @@ class TamagotchiView extends Component {
             const intervalId = this.movement()
             this.setState(() => ({ interval: intervalId }))
         }
+        if(this.props.status && prop.status && this.props.status.fullness <= 0 && prop.status.fullness > 0) {
+            this.stopAnimaton()
+        }
     }
 
     movement = () => {
@@ -44,9 +47,12 @@ class TamagotchiView extends Component {
     }
 
     componentWillUnmount() {
-        clearInterval(this.state.interval)
+        this.stopAnimaton()
     }
 
+    stopAnimaton = () => {
+        clearInterval(this.state.interval)
+    }
 
     feedItem = (item_id) => {
         if (!this.props.disable) {
@@ -113,7 +119,7 @@ class TamagotchiView extends Component {
             return (
                 <img
                     className="tamagotchi"
-                    src="https://i.ya-webdesign.com/images/transparent-grave-kawaii.png"
+                    src="https://media.giphy.com/media/mvkIAXfIVaYqhUDnrF/giphy.gif"
                     alt="tombstone" />
             )
         }
