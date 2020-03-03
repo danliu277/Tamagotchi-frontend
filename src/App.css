@@ -127,7 +127,7 @@ buttons for navbar */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.329);
+  background-color: rgba(255, 255, 255, 0.842);
   min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.884);
   z-index: 1;
@@ -338,6 +338,11 @@ button {
   position: relative;
 }
 
+button:hover {
+  color: #fff;
+  background: #fff;
+}
+
 /* button::before,
 button::after {
   background: #fff;
@@ -346,7 +351,7 @@ button::after {
   z-index: -1;
 } */
 
-button:hover {
+.button-circle:hover {
   color: #fa2acd;
   background: #fff;
 }

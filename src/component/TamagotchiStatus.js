@@ -77,12 +77,12 @@ class TamagotchiStatus extends React.Component {
                         </ul>
                     </div>
                     <div className='food-toy-navbar'>
-                        <button className="btn-4" onClick={this.handleLeftFood}>{'<<'}</button>
+                        <button className="button-circle btn-4" onClick={this.handleLeftFood}>{'<<'}</button>
                             {this.displayFoods().map(inventory => <ItemStatus handleClick = {this.props.feedItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)}
-                        <button className="btn-4" onClick={this.handleRightFood}>{'>>'}</button>
-                        <button className="btn-4" onClick={this.handleLeftToy}>{'<<'}</button>
+                        <button className="button-circle btn-4" onClick={this.handleRightFood}>{'>>'}</button>
+                        <button className="button-circle btn-4" onClick={this.handleLeftToy}>{'<<'}</button>
                             {this.displayToys().map(inventory => <ItemStatus handleClick = {this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)}
-                        <button className="btn-4" onClick={this.handleRightToy}>{'>>'}</button>
+                        <button className="button-circle btn-4" onClick={this.handleRightToy}>{'>>'}</button>
                     </div>
                 </div>
             </nav>
