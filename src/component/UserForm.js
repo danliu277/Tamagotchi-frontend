@@ -19,12 +19,14 @@ class UserForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.submitHandler}>
+            <form className='login-card' onSubmit={this.submitHandler}>
                 <label>Username</label>
                 <input name="username" value={this.state.username} onChange={this.updateUser} />
+                <br/>
                 <label>Password</label>
                 <input name="password" value={this.state.password} onChange={this.updateUser} />
-                <button>{this.props.login ? 'Login' : 'Create User'}</button>
+                <br/>
+                <button className='login-button'>{this.props.login ? 'Login' : 'Create User'}</button>
             </form>
         );
     }
