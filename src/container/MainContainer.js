@@ -118,6 +118,7 @@ class MainContainer extends Component {
                     {...this.state.status}
                     inventory={this.state.inventory}
                     statuses={this.props.statuses}
+                    logout={this.props.logout}
                 />
                 <Switch>
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>

@@ -12,10 +12,6 @@ class App extends Component {
     statuses: []
   }
 
-  componentDidMount() {
-    // this.login({username: 'asd', password:'123'})
-  }
-
   createUser = (user) => {
     requests.createUser(user)
       .then(resp => {
@@ -56,8 +52,9 @@ class App extends Component {
       })
   }
 
-  toggleLogin = () => {
-    this.setState(currentState => ({ login: !currentState.login }))
+  logout = () => {
+    this.setState(() => ({user: null}))
+    this.props.history.push('/user')
   }
 
   render() {
@@ -75,7 +72,7 @@ class App extends Component {
           <Route path='/status/:id' render={(routerProps) => {
             if (!this.state.user)
               return <Redirect to="/user" />
-            return <MainContainer user={this.state.user} {...routerProps} statuses={this.state.statuses} />
+            return <MainContainer user={this.state.user} {...routerProps} statuses={this.state.statuses} logout={this.logout} />
           }} />
           <Route render={() => <h1>These are not the routes you are looking for...</h1>} />
         </Switch>
