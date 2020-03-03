@@ -6,6 +6,15 @@ function NavBar(props) {
         props.history.push(`/tamagotchis`)
     }
 
+    const renderTamagotchiDropdown = () => {
+        const array = [...props.statuses.filter(status => status.fullness > 0), ...props.statuses.filter(status => status.fullness <= 0)]
+        return array.map(status =>
+            <a href={`/status/${status.id}`} key={status.id} >
+                {status.nickname} {!status.fullness && '☠️'}
+            </a>
+        )
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light tamagotchi-navbar sticky">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,17 +37,7 @@ function NavBar(props) {
                     <div className="dropdown">
                         <button className="dropbtn">Tamagotchis</button>
                         <div className="dropdown-content">
-                            {
-                                props.statuses.sort((a, b) => {
-                                    if(a.fullness === 0)
-                                        return 1
-                                    return -1
-                                }).map(status =>
-                                    <a href={`/status/${status.id}`} key={status.id} >
-                                        {status.nickname} {!status.fullness && '☠️'}
-                                    </a>
-                                )
-                            }
+                            { renderTamagotchiDropdown() }
                         </div>
                     </div>
 
