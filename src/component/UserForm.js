@@ -24,7 +24,7 @@ class UserForm extends Component {
                 <input name="username" value={this.state.username} onChange={this.updateUser} />
                 <br/>
                 <label>Password</label>
-                <input name="password" value={this.state.password} onChange={this.updateUser} />
+                <input name="password" type='password' value={this.state.password} onChange={this.updateUser} />
                 <br/>
                 <button className='login-button'>{this.props.login ? 'Login' : 'Create User'}</button>
             </form>
