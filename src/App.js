@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.loginUser()
+    // this.loginUser()
   }
 
   createUser = (user) => {
