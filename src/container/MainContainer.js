@@ -18,7 +18,8 @@ class MainContainer extends Component {
         clearInterval(this.state.interval)
         this.getStatus(this.props.match.params.id)
         this.unlisten = this.props.history.listen(location => {
-            this.getStatus(location.pathname.split('/')[2])
+            if (location.pathname.includes('status'))
+                this.getStatus(location.pathname.split('/')[2])
         });
     }
 
@@ -110,9 +111,9 @@ class MainContainer extends Component {
     }
 
     background = () => {
-        if(this.props.location.pathname.includes('shop'))
+        if (this.props.location.pathname.includes('shop'))
             return 'shop-background'
-        else if(this.props.location.pathname.includes('graveyard'))
+        else if (this.props.location.pathname.includes('graveyard'))
             return 'graveyard-background'
         else
             return 'tamagotchi-background'
