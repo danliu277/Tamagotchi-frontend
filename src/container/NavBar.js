@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function NavBar(props) {
     const adoptRoute = () => {
-        props.history.push(`/tamagotchis`)
+        props.history.push(`/user/${props.userId}/tamagotchis`)
     }
 
     const graveyardRoute = () => {
@@ -12,7 +12,7 @@ function NavBar(props) {
 
     const renderTamagotchiDropdown = () => {
         const array = props.statuses.filter(status => status.fullness > 0).map(status =>
-            <Link to={`/status/${status.id}`} key={status.id} >
+            <Link to={`/user/${props.userId}/status/${status.id}`} key={status.id} >
                 {status.nickname}
             </Link>
         )
@@ -41,7 +41,7 @@ function NavBar(props) {
                     <div className="dropdown">
                         <button className="dropbtn">Tamagotchis</button>
                         <div className="dropdown-content">
-                            { renderTamagotchiDropdown() }
+                            {renderTamagotchiDropdown()}
                         </div>
                     </div>
 

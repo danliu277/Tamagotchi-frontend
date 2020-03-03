@@ -5,6 +5,7 @@ import TamagotchiView from '../component/TamagotchiView'
 import NavBar from './NavBar'
 import ShopContainer from './ShopContainer'
 import Graveyard from '../component/Graveyard'
+import PickTamagotchi from './PickTamagotchi'
 
 class MainContainer extends Component {
     state = {
@@ -16,7 +17,7 @@ class MainContainer extends Component {
 
     componentDidMount() {
         clearInterval(this.state.interval)
-        this.getStatus(this.props.match.params.id)
+        this.getStatus(this.props.location.pathname.split('/')[4])
         this.unlisten = this.props.history.listen(location => {
             if (location.pathname.includes('status'))
                 this.getStatus(location.pathname.split('/')[2])
@@ -35,7 +36,7 @@ class MainContainer extends Component {
 
     statusInterval = () => {
         const interval = setInterval(() => {
-            requests.getStatus(this.props.match.params.id)
+            requests.getStatus(this.props.location.pathname.split('/')[4])
                 .then(status => {
                     this.setState(() => ({ status }))
                 })
@@ -130,8 +131,12 @@ class MainContainer extends Component {
                     inventory={this.state.inventory}
                     statuses={this.props.statuses}
                     logout={this.props.logout}
+                    userId={this.props.user && this.props.user.id}
                 />
                 <Switch>
+                    <Route path={`${this.props.match.path}/tamagotchis`} render={(routerProps) => {
+                        return <PickTamagotchi user={this.state.user} {...routerProps} getStatuses={this.props.getStatuses} />
+                    }} />
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
                         <ShopContainer
                             items={this.state.inventory}
@@ -146,7 +151,7 @@ class MainContainer extends Component {
                         <Graveyard
                             tamagotchis={this.props.statuses && this.props.statuses.filter(status => status.fullness <= 0)} />
                     </Route>
-                    <Route path="">
+                    <Route path={`${this.props.match.path}/status/:id`}>
                         <TamagotchiView
                             status={this.state.status}
                             inventory={this.state.inventory}

@@ -46,10 +46,10 @@ class App extends Component {
       .then(statuses => {
         this.setState(() => ({ statuses }), () => {
           if (this.state.statuses && this.state.statuses.length > 0) {
-            this.props.history.push(`/status/${this.state.statuses[0].id}`)
+            this.props.history.push(`/user/${this.state.user.id}/status/${this.state.statuses[0].id}`)
             this.statusInterval()
           } else {
-            this.props.history.push('/tamagotchis')
+            this.props.history.push(`/user/${this.state.user.id}/tamagotchis`)
           }
         })
       })
@@ -78,18 +78,13 @@ class App extends Component {
     return (
       <>
         <Switch>
-          <Route path='/user'>
+          <Route exact path='/user'>
             <UserForm createUser={this.createUser} login={this.login} />
           </Route>
-          <Route path='/tamagotchis' render={(routerProps) => {
+          <Route path='/user/:user_id' render={(routerProps) => {
             if (!this.state.user)
               return <Redirect to="/user" />
-            return <PickTamagotchi user={this.state.user} {...routerProps} getStatuses={this.getStatuses} />
-          }} />
-          <Route path='/status/:id' render={(routerProps) => {
-            if (!this.state.user)
-              return <Redirect to="/user" />
-            return <MainContainer user={this.state.user} {...routerProps} statuses={this.state.statuses} logout={this.logout} />
+            return <MainContainer user={this.state.user} {...routerProps} statuses={this.state.statuses} logout={this.logout} getStatuses={this.getStatuses} />
           }} />
           <Route render={() => <h1>These are not the routes you are looking for...</h1>} />
         </Switch>
