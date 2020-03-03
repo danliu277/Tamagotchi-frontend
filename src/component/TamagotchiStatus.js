@@ -66,7 +66,7 @@ class TamagotchiStatus extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <div className=''>
                         <ul className="navbar-nav mr-auto">
-                            <div className='status-navbar'>
+                            <div className='status-navbar' style={{ width: '150px' }}>
                                 <div>
                                     Happiness: {this.props.happiness}
                                 </div>
@@ -76,12 +76,28 @@ class TamagotchiStatus extends React.Component {
                             </div>
                         </ul>
                     </div>
+                    <div>
+                        <h3 className='neon' style={{ width: '150px' }}>
+                            {this.props.nickname}
+                        </h3>
+                    </div>
                     <div className='food-toy-navbar'>
                         <button className="button-circle btn-4" onClick={this.handleLeftFood}>{'<<'}</button>
-                            {this.displayFoods().map(inventory => <ItemStatus handleClick = {this.props.feedItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)}
+                        {
+                            this.props.inventory.filter(inventory => inventory.item.category === 'food').length > 0 ?
+                            this.displayFoods().map(inventory => <ItemStatus handleClick={this.props.feedItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />) :
+                            '🍟🍔🍙Feed Me🍉🍦🍩'
+                        }
                         <button className="button-circle btn-4" onClick={this.handleRightFood}>{'>>'}</button>
                         <button className="button-circle btn-4" onClick={this.handleLeftToy}>{'<<'}</button>
-                            {this.displayToys().map(inventory => <ItemStatus handleClick = {this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)}
+                        {
+                            this.props.inventory.filter(inventory => inventory.item.category === 'toy').length > 0 ?
+                            this.displayToys().map(inventory => <ItemStatus handleClick={this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />) :
+                            '🧸🚂🎮Play with Me⚽🏀🥊'
+                        }
+
+
+                        {/* {this.displayToys().map(inventory => <ItemStatus handleClick={this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)} */}
                         <button className="button-circle btn-4" onClick={this.handleRightToy}>{'>>'}</button>
                     </div>
                 </div>

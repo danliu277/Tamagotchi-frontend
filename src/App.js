@@ -39,6 +39,7 @@ class App extends Component {
       })
   }
 
+
   getStatuses = () => {
     requests.getUserStatuses(this.state.user.id)
       .then(statuses => {

@@ -23,7 +23,7 @@ class UserForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className='login-base'>
                 <br/>
                 <br/>
                 <img src='https://vignette.wikia.nocookie.net/tamagotchi/images/5/5a/Official-tamagotchi-friends-logo.png/revision/latest?cb=20131115071609' style={{ width: '500px'}} alt='background' />

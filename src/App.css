@@ -206,8 +206,11 @@ bottom .navbar */
 .food-toy-navbar {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  font-size: 20px;
   margin: 2px 30px;
   width: 75%;
+  color: #fff
 }
 
 .status-navbar {
@@ -254,7 +257,7 @@ bottom .navbar */
 }
 
 .shop {
-  background: radial-gradient(circle, rgba(238, 174, 202, 0.548) 0%, rgba(178, 148, 233, 0.705) 100%);
+  background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(178, 148, 233) 100%);
   border-style: solid;
   border-color: #fff; 
   /* width: 50% */
@@ -280,7 +283,7 @@ bottom .navbar */
 }
 
 .inventory {
-  background: radial-gradient(circle, rgba(85, 15, 250, 0.436) 0%, rgba(46, 235, 249, 0.654) 100%);
+  background: radial-gradient(circle, rgb(85, 15, 250) 0%, rgb(46, 235, 249) 100%);
   border-style: solid;
   border-color: #fff; 
   border-color: #fff;
@@ -534,6 +537,22 @@ button::after {
   color: #fff;
   background: rgb(236, 89, 170);
 }
+
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(236, 89, 170);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(236, 89, 170);
+}
+
 
 input[type=text] {
   background-color: #fff;
