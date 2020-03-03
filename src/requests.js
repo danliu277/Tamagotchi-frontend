@@ -2,6 +2,7 @@
 const headers = {'Content-Type': 'application/json', 'Accepts': 'application/json'}
 // urls
 const usersURL = 'http://localhost:4000/users'
+const loginURL = 'http://localhost:4000/login'
 const tamagotchisURL = 'http://localhost:4000/tamagotchis'
 const statusesURL = 'http://localhost:4000/statuses'
 const itemsURL = 'http://localhost:4000/items'
@@ -21,7 +22,7 @@ export const createUser = (user) => fetch(`${usersURL}/create`, {
 .catch(catchError)
 
 // Login User
-export const loginUser = (user) => fetch(`${usersURL}/login`, {
+export const loginUser = (user) => fetch(`${loginURL}`, {
     method: 'POST',
     headers,
     body: JSON.stringify(user)

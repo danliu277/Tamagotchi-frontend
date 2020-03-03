@@ -11,22 +11,27 @@ class UserForm extends Component {
         this.setState(() => ({ [name]: value }))
     }
 
-    submitHandler = (event) => {
+    login = (event) => {
         event.preventDefault()
-        this.props.submitHandler(this.state)
+        this.props.login(this.state)
     }
 
+    createUser = (event) => {
+        event.preventDefault()
+        this.props.createUser(this.state)
+    }
 
     render() {
         return (
-            <form className='login-card' onSubmit={this.submitHandler}>
+            <form className='login-card'>
                 <label>Username</label>
                 <input name="username" value={this.state.username} onChange={this.updateUser} />
                 <br/>
                 <label>Password</label>
                 <input name="password" value={this.state.password} onChange={this.updateUser} />
                 <br/>
-                <button className='login-button'>{this.props.login ? 'Login' : 'Create User'}</button>
+                <button className='login-button' onClick={this.login}>Login</button>
+                <button className='login-button' onClick={this.createUser}>Create User</button>
             </form>
         );
     }
