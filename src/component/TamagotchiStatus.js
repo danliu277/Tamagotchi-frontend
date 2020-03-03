@@ -87,20 +87,19 @@ class TamagotchiStatus extends React.Component {
                         {
                             this.props.inventory.filter(inventory => inventory.item.category === 'food').length > 0 ?
                             this.displayFoods().map(inventory => <ItemStatus handleClick={this.props.feedItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />) :
-                            '🍟🍔🍙Feed Me🍉🍦🍩'
+                            'Go to the store and buy me food'
                         }
                         <button className="button-circle btn-4" onClick={this.handleRightFood}>{'>>'}</button>
                         <button className="button-circle btn-4" onClick={this.handleLeftToy}>{'<<'}</button>
                         {
                             this.props.inventory.filter(inventory => inventory.item.category === 'toy').length > 0 ?
                             this.displayToys().map(inventory => <ItemStatus handleClick={this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />) :
-                            '🧸🚂🎮Play with Me⚽🏀🥊'
+                            'Go to the store and buy me toys'
                         }
-                        {/* {this.displayToys().map(inventory => <ItemStatus handleClick={this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)} */}
                         <button className="button-circle btn-4" onClick={this.handleRightToy}>{'>>'}</button>
                     </div>
                         <h4>
-                            <Link to={`/user/${this.props.user.id}/status/${this.props.id}/shop`}><img src='https://cdn4.iconfinder.com/data/icons/store-4/92/icon72-20-512.png' style={{width: '50px'}}/></Link>
+                            <Link to={`/user/${this.props.user.id}/status/${this.props.id}/shop`}><img src='https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/shop-icon.png' style={{width: '50px'}}/></Link>
                         </h4>
                         <h3 className='neon status-money-navbar'>
 
