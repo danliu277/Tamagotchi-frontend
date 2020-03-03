@@ -14,17 +14,24 @@ class MainContainer extends Component {
     }
 
     componentDidMount() {
-        this.getStatus()
+        clearInterval(this.state.interval)
+        this.getStatus(this.props.match.params.id)
+        this.unlisten = this.props.history.listen(location => {
+            this.getStatus(location.pathname.split('/')[2])
+        });
     }
 
-    getStatus = () => {
-        requests.getStatus(this.props.match.params.id)
+    getStatus = (id) => {
+        requests.getStatus(id)
             .then(status => {
                 this.setState(() => ({ status }), () => {
                     this.getInventory()
                     this.getTamagotchi()
                 })
             })
+    }
+
+    statusInterval = () => {
         const interval = setInterval(() => {
             requests.getStatus(this.props.match.params.id)
                 .then(status => {
@@ -35,6 +42,7 @@ class MainContainer extends Component {
     }
 
     componentWillUnmount() {
+        this.unlisten()
         clearInterval(this.state.interval)
     }
 
@@ -110,7 +118,7 @@ class MainContainer extends Component {
                     {...this.state.status}
                     inventory={this.state.inventory}
                     statuses={this.props.statuses}
-                    />
+                />
                 <Switch>
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
                         <ShopContainer
@@ -123,14 +131,14 @@ class MainContainer extends Component {
                             disable={this.state.status && this.state.status.fullness <= 0} />
                     } />
                     <Route path="">
-                        <TamagotchiView 
-                            status={this.state.status} 
-                            inventory={this.state.inventory} 
+                        <TamagotchiView
+                            status={this.state.status}
+                            inventory={this.state.inventory}
                             tamagotchi={this.state.tamagotchi}
                             removeFromInventory={this.removeFromInventory}
                             updateStatus={this.updateStatus}
                             updateMoney={this.updateMoney}
-                            disable={this.state.status && this.state.status.fullness <= 0}  />
+                            disable={this.state.status && this.state.status.fullness <= 0} />
                     </Route>
                 </Switch>
             </div>

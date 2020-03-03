@@ -26,7 +26,7 @@ class UserForm extends Component {
             <div>
                 <br/>
                 <br/>
-                <img src='https://vignette.wikia.nocookie.net/tamagotchi/images/5/5a/Official-tamagotchi-friends-logo.png/revision/latest?cb=20131115071609' style={{ width: '500px'}}/>
+                <img src='https://vignette.wikia.nocookie.net/tamagotchi/images/5/5a/Official-tamagotchi-friends-logo.png/revision/latest?cb=20131115071609' style={{ width: '500px'}} alt='background' />
                 <br/>
                 <br/>
 

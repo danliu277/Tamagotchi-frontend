@@ -9,9 +9,9 @@ function NavBar(props) {
     const renderTamagotchiDropdown = () => {
         const array = [...props.statuses.filter(status => status.fullness > 0), ...props.statuses.filter(status => status.fullness <= 0)]
         return array.map(status =>
-            <a href={`/status/${status.id}`} key={status.id} >
+            <Link to={`/status/${status.id}`} key={status.id} >
                 {status.nickname} {!status.fullness && '☠️'}
-            </a>
+            </Link>
         )
     }
 
