@@ -6,13 +6,17 @@ function NavBar(props) {
         props.history.push(`/tamagotchis`)
     }
 
+    const graveyardRoute = () => {
+        props.history.push(`${props.path}/graveyard`)
+    }
+
     const renderTamagotchiDropdown = () => {
-        const array = [...props.statuses.filter(status => status.fullness > 0), ...props.statuses.filter(status => status.fullness <= 0)]
-        return array.map(status =>
+        const array = props.statuses.filter(status => status.fullness > 0).map(status =>
             <Link to={`/status/${status.id}`} key={status.id} >
-                {status.nickname} {!status.fullness && '☠️'}
+                {status.nickname}
             </Link>
         )
+        return array
     }
 
     return (
@@ -43,6 +47,10 @@ function NavBar(props) {
 
                     <div className="dropdown">
                         <button className="dropbtn" onClick={() => adoptRoute()}>Adopt Tamagotchis</button>
+                    </div>
+
+                    <div className="dropdown">
+                        <button className="dropbtn" onClick={() => graveyardRoute()}>Graveyard ☠️</button>
                     </div>
 
                     <div className="dropdown">

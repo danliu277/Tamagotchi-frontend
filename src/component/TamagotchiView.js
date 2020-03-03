@@ -10,11 +10,6 @@ class TamagotchiView extends Component {
         play: false
     }
 
-    // componentDidMount() {
-    //     const intervalId = this.movement()
-    //     this.setState((state) => ({ interval: intervalId }))
-    // }
-
     componentDidUpdate(prop) {
         if (this.props && !prop.status && this.props.status) {
             const intervalId = this.movement()

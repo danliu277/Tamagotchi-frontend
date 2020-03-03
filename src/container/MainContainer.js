@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import TamagotchiView from '../component/TamagotchiView'
 import NavBar from './NavBar'
 import ShopContainer from './ShopContainer'
+import Graveyard from '../component/Graveyard'
 
 class MainContainer extends Component {
     state = {
@@ -108,9 +109,18 @@ class MainContainer extends Component {
         })
     }
 
+    background = () => {
+        if(this.props.location.pathname.includes('shop'))
+            return 'shop-background'
+        else if(this.props.location.pathname.includes('graveyard'))
+            return 'graveyard-background'
+        else
+            return 'tamagotchi-background'
+    }
+
     render() {
         return (
-            <div className={this.props.location.pathname.includes('shop') ? 'shop-background' : 'tamagotchi-background'}>
+            <div className={this.background()}>
                 <NavBar
                     path={this.props.match.url}
                     pathname={this.props.location.pathname}
@@ -131,6 +141,10 @@ class MainContainer extends Component {
                             updateMoney={this.updateMoney}
                             disable={this.state.status && this.state.status.fullness <= 0} />
                     } />
+                    <Route path={`${this.props.match.path}/graveyard`}>
+                        <Graveyard
+                            tamagotchis={this.state.statuses && this.state.statuses.filter(status => status.fullness <= 0)} />
+                    </Route>
                     <Route path="">
                         <TamagotchiView
                             status={this.state.status}
