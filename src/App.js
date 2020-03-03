@@ -3,7 +3,6 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import './App.css';
 import * as requests from './requests'
 import UserForm from './component/UserForm';
-import PickTamagotchi from './container/PickTamagotchi';
 import MainContainer from './container/MainContainer';
 
 class App extends Component {

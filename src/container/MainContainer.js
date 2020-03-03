@@ -135,7 +135,7 @@ class MainContainer extends Component {
                 />
                 <Switch>
                     <Route path={`${this.props.match.path}/tamagotchis`} render={(routerProps) => {
-                        return <PickTamagotchi user={this.state.user} {...routerProps} getStatuses={this.props.getStatuses} />
+                        return <PickTamagotchi user={this.props.user} {...routerProps} getStatuses={this.props.getStatuses} />
                     }} />
                     <Route exact path={`${this.props.match.path}/shop`} render={() =>
                         <ShopContainer
