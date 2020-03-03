@@ -36,7 +36,6 @@ class App extends Component {
           alert(resp.errors)
         } else {
           this.setState(() => ({ user: resp.user }), () => {
-            debugger
             if (this.state.user)
               this.getStatuses()
           })
