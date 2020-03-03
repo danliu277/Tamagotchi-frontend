@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemStatus from './ItemStatus'
+import { Link } from 'react-router-dom'
 
 class TamagotchiStatus extends React.Component {
     state = {
@@ -97,9 +98,11 @@ class TamagotchiStatus extends React.Component {
                         }
                         {/* {this.displayToys().map(inventory => <ItemStatus handleClick={this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)} */}
                         <button className="button-circle btn-4" onClick={this.handleRightToy}>{'>>'}</button>
+                        <h4>
+                            <Link to={`/user/${this.props.user.id}/status/${this.props.id}/shop`}>shop</Link>
+                        </h4>
                         <h3 className='neon'>
-                        {/* <div className="form-inline my-2 my-lg-0">
-                    </div> */}
+
                             ${this.props.money}
                         </h3>
                     </div>

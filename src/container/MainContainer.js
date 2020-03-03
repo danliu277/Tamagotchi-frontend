@@ -137,8 +137,9 @@ class MainContainer extends Component {
                     <Route path={`${this.props.match.path}/tamagotchis`} render={(routerProps) => {
                         return <PickTamagotchi user={this.props.user} {...routerProps} getStatuses={this.props.getStatuses} />
                     }} />
-                    <Route exact path={`${this.props.match.path}/shop`} render={() =>
+                    <Route exact path={`${this.props.match.path}/status/:id/shop`} render={() =>
                         <ShopContainer
+                            userId={this.props.user && this.props.user.id}
                             items={this.state.inventory}
                             status_id={this.state.status && this.state.status.id}
                             money={this.state.status && this.state.status.money}
@@ -153,6 +154,7 @@ class MainContainer extends Component {
                     </Route>
                     <Route path={`${this.props.match.path}/status/:id`}>
                         <TamagotchiView
+                            user={this.props.user}
                             status={this.state.status}
                             inventory={this.state.inventory}
                             tamagotchi={this.state.tamagotchi}

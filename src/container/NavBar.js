@@ -45,10 +45,12 @@ function NavBar(props) {
                         </button>
                     </div>
 
+                </ul>
+                    <div className="form-inline my-2 my-lg-0">
                     <div className="dropdown">
                         <button className="dropbtn" onClick={props.logout}>Logout</button>
                     </div>
-                </ul>
+                    </div>
 
             </div>
         </nav>

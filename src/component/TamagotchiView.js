@@ -129,6 +129,7 @@ class TamagotchiView extends Component {
                     {this.renderTamagotchi()}
                 </div>
                 <TamagotchiStatus
+                    user={this.props.user}
                     {...this.props.status}
                     inventory={this.props.inventory}
                     feedItem={this.feedItem}

@@ -34,9 +34,6 @@ class Shop extends Component {
     render() {
         return (
             <div className='shop scroll scroll3' >
-                <div>
-                    <h3>something</h3>
-                </div>
                 <h3 className=''>TAMAGOTCHI STORE</h3>
                 <div className=''>
                     <h4 className="center">Food</h4>
