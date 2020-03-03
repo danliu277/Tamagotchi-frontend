@@ -50,7 +50,10 @@ function NavBar(props) {
                     </div>
 
                     <div className="dropdown">
-                        <button className="dropbtn" onClick={() => graveyardRoute()}>Graveyard ☠️</button>
+                        <button className="dropbtn" onClick={() => graveyardRoute()}>
+                            Graveyard
+                            <span role='img' aria-label={props.label ? props.label : ""}>☠️</span>
+                        </button>
                     </div>
 
                     <div className="dropdown">

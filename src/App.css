@@ -342,6 +342,12 @@ bottom .navbar */
   transition: all 2s ease-in-out;
 }
 
+.ghost-wrapper {
+  bottom: 100px;
+  position: absolute;
+  transition: all 5s ease-in-out;
+}
+
 /* -------------------------------------------------------scroll bar */
 .scroll {
   height: 100vh;

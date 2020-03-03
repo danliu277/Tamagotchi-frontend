@@ -143,7 +143,7 @@ class MainContainer extends Component {
                     } />
                     <Route path={`${this.props.match.path}/graveyard`}>
                         <Graveyard
-                            tamagotchis={this.state.statuses && this.state.statuses.filter(status => status.fullness <= 0)} />
+                            tamagotchis={this.props.statuses && this.props.statuses.filter(status => status.fullness <= 0)} />
                     </Route>
                     <Route path="">
                         <TamagotchiView
