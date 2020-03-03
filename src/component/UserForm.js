@@ -23,16 +23,27 @@ class UserForm extends Component {
 
     render() {
         return (
+            <div>
+                <br/>
+                <br/>
+                <img src='https://vignette.wikia.nocookie.net/tamagotchi/images/5/5a/Official-tamagotchi-friends-logo.png/revision/latest?cb=20131115071609' style={{ width: '500px'}}/>
+                <br/>
+                <br/>
+
             <form className='login-card'>
                 <label>Username</label>
-                <input name="username" value={this.state.username} onChange={this.updateUser} />
+                <input name="username" type='text' value={this.state.username} onChange={this.updateUser} />
                 <br/>
                 <label>Password</label>
                 <input name="password" type='password' value={this.state.password} onChange={this.updateUser} />
                 <br/>
+                <div className='login-button-div'>
                 <button className='login-button' onClick={this.login}>Login</button>
                 <button className='login-button' onClick={this.createUser}>Create User</button>
+                </div>
             </form>
+
+            </div>
         );
     }
 }
