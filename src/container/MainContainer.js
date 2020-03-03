@@ -38,7 +38,7 @@ class MainContainer extends Component {
                 .then(status => {
                     this.setState(() => ({ status }))
                 })
-        }, 60000)
+        }, 50000)
         this.setState(() => ({ interval }))
     }
 

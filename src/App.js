@@ -9,7 +9,8 @@ import MainContainer from './container/MainContainer';
 class App extends Component {
   state = {
     user: null,
-    statuses: []
+    statuses: [],
+    interval: 0
   }
 
   createUser = (user) => {
@@ -46,6 +47,7 @@ class App extends Component {
         this.setState(() => ({ statuses }), () => {
           if (this.state.statuses && this.state.statuses.length > 0) {
             this.props.history.push(`/status/${this.state.statuses[0].id}`)
+            this.statusInterval()
           } else {
             this.props.history.push('/tamagotchis')
           }
@@ -54,8 +56,22 @@ class App extends Component {
   }
 
   logout = () => {
-    this.setState(() => ({user: null}))
+    this.setState(() => ({ user: null }))
     this.props.history.push('/user')
+  }
+
+  statusInterval = () => {
+    const interval = setInterval(() => {
+      requests.getUserStatuses(this.state.user.id)
+        .then(statuses => {
+          this.setState(() => ({ statuses }))
+        })
+    }, 50000)
+    this.setState(() => ({ interval }))
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.interval)
   }
 
   render() {
