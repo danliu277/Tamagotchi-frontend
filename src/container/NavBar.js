@@ -28,17 +28,6 @@ function NavBar(props) {
                 <ul className="navbar-nav mr-auto">
 
                     <div className="dropdown">
-                        <button className="dropbtn">
-                            {
-                                props.pathname.includes('shop') ?
-                                    <Link to={props.path} className="dropbtn">Home</Link>
-                                    :
-                                    <Link to={`${props.path}/shop`} className="dropbtn">Shop</Link>
-                            }
-                        </button>
-                    </div>
-
-                    <div className="dropdown">
                         <button className="dropbtn">Tamagotchis</button>
                         <div className="dropdown-content">
                             {renderTamagotchiDropdown()}

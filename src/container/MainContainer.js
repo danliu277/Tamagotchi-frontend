@@ -20,7 +20,7 @@ class MainContainer extends Component {
         this.getStatus(this.props.location.pathname.split('/')[4])
         this.unlisten = this.props.history.listen(location => {
             if (location.pathname.includes('status'))
-                this.getStatus(location.pathname.split('/')[2])
+                this.getStatus(location.pathname.split('/')[4])
         });
     }
 
