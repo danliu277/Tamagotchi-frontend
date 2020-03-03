@@ -95,8 +95,6 @@ class TamagotchiStatus extends React.Component {
                             this.displayToys().map(inventory => <ItemStatus handleClick={this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />) :
                             '🧸🚂🎮Play with Me⚽🏀🥊'
                         }
-
-
                         {/* {this.displayToys().map(inventory => <ItemStatus handleClick={this.props.playItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />)} */}
                         <button className="button-circle btn-4" onClick={this.handleRightToy}>{'>>'}</button>
                     </div>

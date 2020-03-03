@@ -46,7 +46,7 @@ class Graveyard extends Component {
                 <div key={status.id} 
                     className="ghost-wrapper" 
                     style={{ left: `${Math.floor(Math.random() * Math.floor(100))}%`, top: `${Math.floor(Math.random() * Math.floor(100))}%` }} >
-                    <h3>
+                    <h3 className='neon'>
                         {status.nickname}
                     </h3>
                     <img 
