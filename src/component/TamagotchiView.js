@@ -18,7 +18,7 @@ class TamagotchiView extends Component {
     componentDidUpdate(prop) {
         if (this.props && !prop.status && this.props.status) {
             const intervalId = this.movement()
-            this.setState((state) => ({ interval: intervalId }))
+            this.setState(() => ({ interval: intervalId }))
         }
     }
 
@@ -49,18 +49,19 @@ class TamagotchiView extends Component {
 
 
     feedItem = (item_id) => {
-        requests.feedItem({ status_id: this.props.status.id, item_id })
-            .then(json => {
-                if (json && json.inventory) {
-                    this.props.removeFromInventory(json.inventory)
-                    this.props.updateStatus('fullness', json.fullness)
-                }
-                this.toggleEat()
-                setTimeout(() => {
+        if (!this.props.disable) {
+            requests.feedItem({ status_id: this.props.status.id, item_id })
+                .then(json => {
+                    if (json && json.inventory) {
+                        this.props.removeFromInventory(json.inventory)
+                        this.props.updateStatus('fullness', json.fullness)
+                    }
                     this.toggleEat()
-                }, 1500)
-            })
-
+                    setTimeout(() => {
+                        this.toggleEat()
+                    }, 1500)
+                })
+        }
     }
 
     toggleEat = () => {
@@ -68,18 +69,20 @@ class TamagotchiView extends Component {
     }
 
     playItem = (item_id) => {
-        requests.playItem({ status_id: this.props.status.id, item_id })
-            .then(json => {
-                if (json && json.inventory) {
-                    this.props.removeFromInventory(json.inventory)
-                    this.props.updateStatus('happiness', json.happiness)
-                    this.props.updateMoney(json.money)
-                }
-                this.togglePlay()
-                setTimeout(() => {
+        if (!this.props.disable) {
+            requests.playItem({ status_id: this.props.status.id, item_id })
+                .then(json => {
+                    if (json && json.inventory) {
+                        this.props.removeFromInventory(json.inventory)
+                        this.props.updateStatus('happiness', json.happiness)
+                        this.props.updateMoney(json.money)
+                    }
                     this.togglePlay()
-                }, 1500)
-            })
+                    setTimeout(() => {
+                        this.togglePlay()
+                    }, 1500)
+                })
+        }
     }
 
     togglePlay = () => {
@@ -119,7 +122,6 @@ class TamagotchiView extends Component {
     render() {
         return (
             <>
-
                 <div
                     className="tamagotchi-wrapper"
                     style={{ left: `${this.state.left}%` }}>

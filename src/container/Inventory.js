@@ -14,14 +14,16 @@ function Inventory(props) {
 
 
     const sellItem = (item_id) => {
-        const newInventory = { status_id: props.status_id, item_id }
-        requests.sellItem(newInventory)
-            .then(json => {
-                if (json && json.inventory) {
-                    props.removeFromInventory(json.inventory)
-                    props.updateMoney(json.money)
-                }
-            })
+        if (!props.disable) {
+            const newInventory = { status_id: props.status_id, item_id }
+            requests.sellItem(newInventory)
+                .then(json => {
+                    if (json && json.inventory) {
+                        props.removeFromInventory(json.inventory)
+                        props.updateMoney(json.money)
+                    }
+                })
+        }
     }
 
     return (

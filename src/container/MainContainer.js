@@ -119,7 +119,8 @@ class MainContainer extends Component {
                             money={this.state.status && this.state.status.money}
                             addToInventory={this.addToInventory}
                             removeFromInventory={this.removeFromInventory}
-                            updateMoney={this.updateMoney} />
+                            updateMoney={this.updateMoney}
+                            disable={this.state.status && this.state.status.fullness <= 0} />
                     } />
                     <Route path="">
                         <TamagotchiView 
@@ -128,7 +129,8 @@ class MainContainer extends Component {
                             tamagotchi={this.state.tamagotchi}
                             removeFromInventory={this.removeFromInventory}
                             updateStatus={this.updateStatus}
-                            updateMoney={this.updateMoney}  />
+                            updateMoney={this.updateMoney}
+                            disable={this.state.status && this.state.status.fullness <= 0}  />
                     </Route>
                 </Switch>
             </div>
