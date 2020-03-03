@@ -39,18 +39,26 @@ class App extends Component {
       })
   }
 
-
   getStatuses = () => {
     requests.getUserStatuses(this.state.user.id)
       .then(statuses => {
         this.setState(() => ({ statuses }), () => {
           if (this.state.statuses && this.state.statuses.length > 0) {
-            this.props.history.push(`/user/${this.state.user.id}/status/${this.state.statuses[0].id}`)
+            const status = this.state.statuses.find(status => status.fullness > 0)
+            const statusId = status ? status.id : this.state.status[0].id
+            this.props.history.push(`/user/${this.state.user.id}/status/${statusId}`)
             this.statusInterval()
           } else {
             this.props.history.push(`/user/${this.state.user.id}/tamagotchis`)
           }
         })
+      })
+  }
+
+  getStatusesNoReroute = () => {
+    requests.getUserStatuses(this.state.user.id)
+      .then(statuses => {
+        this.setState(() => ({ statuses }))
       })
   }
 
@@ -83,7 +91,7 @@ class App extends Component {
           <Route path='/user/:user_id' render={(routerProps) => {
             if (!this.state.user)
               return <Redirect to="/user" />
-            return <MainContainer user={this.state.user} {...routerProps} statuses={this.state.statuses} logout={this.logout} getStatuses={this.getStatuses} />
+            return <MainContainer user={this.state.user} {...routerProps} statuses={this.state.statuses} logout={this.logout} getStatuses={this.getStatusesNoReroute} />
           }} />
           <Route render={() => <h1>These are not the routes you are looking for...</h1>} />
         </Switch>
