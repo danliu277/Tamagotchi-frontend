@@ -217,6 +217,10 @@ bottom .navbar */
   margin: 5px 70px 5px 20px;
 }
 
+.status-money-navbar {
+  margin: 5px 20px 5px 50px;
+}
+
 .status-bar {
   font-size: 16px;
   color: #fa2acd;
@@ -269,6 +273,13 @@ bottom .navbar */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.shop-home-navbar {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .graveyard-background {
