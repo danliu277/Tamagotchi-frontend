@@ -512,7 +512,7 @@ button::after {
 /* -----------------------------------------choose tamagotchi */
 
 .choose-tamagotchi {
-  background: radial-gradient(circle, rgba(223,126,235,1) 0%, rgba(25,8,128,0.41360294117647056) 100%);
+  background: radial-gradient(circle, rgba(223,126,235,1) 0%, rgb(26, 8, 128) 100%);
 
 }
 

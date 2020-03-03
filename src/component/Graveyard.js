@@ -41,7 +41,7 @@ class Graveyard extends Component {
 
     renderGhosts = () => {
         return this.props.tamagotchis.map((status, index) => {
-            const imgUrl = shuffledGhostImg[index]
+            const imgUrl = shuffledGhostImg[index % shuffledGhostImg.length]
             return (
                 <div key={status.id} 
                     className="ghost-wrapper" 
