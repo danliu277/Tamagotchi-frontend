@@ -11,7 +11,9 @@ class TamagotchiCard extends Component {
 
     chooseTamagotchi = (event) => {
         event.preventDefault()
-        this.props.chooseTamagotchi(this.props.id, this.state.input)
+        if(this.state.input) {
+            this.props.chooseTamagotchi(this.props.id, this.state.input)
+        }
     }
 
     render() {
