@@ -10,7 +10,11 @@ const inventoriesURL = 'http://localhost:4000/inventories'
 // parse incoming data
 const parseData = response => response.json()
 // error handler
-const catchError = error => console.log(`%c${error}`, 'color: red;')
+const catchError = error => {
+    debugger
+    alert(error)
+    console.log(`%c${error}`, 'color: red;')
+}
 
 // Create User
 export const createUser = (user) => fetch(`${usersURL}/create`, {
