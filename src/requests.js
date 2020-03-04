@@ -1,7 +1,7 @@
 // headers --> use these at your own discretion
 const headers = {'Content-Type': 'application/json', 'Accepts': 'application/json'}
 // urls
-const url = "https://mod-4-tamagotchi-backend.herokuapp.com"
+const url = "https://mod4-tamagotchi-backend.herokuapp.com"
 // const url = "http://localhost:4000"
 const usersURL = `${url}/users`
 const loginURL = `${url}/login`
