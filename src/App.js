@@ -28,7 +28,7 @@ class App extends Component {
   login = (user) => {
     requests.loginUser(user)
       .then(resp => {
-        if (resp.error) {
+        if (resp.errors) {
           alert(resp.errors)
         } else {
           this.setState(() => ({ user: resp.user }), () => {
