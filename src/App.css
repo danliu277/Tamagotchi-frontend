@@ -276,10 +276,12 @@ bottom .navbar */
 }
 
 .shop-home-navbar {
-  background: #fff;
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  border-style: solid;
+  border-color: #fff; 
 }
 
 .graveyard-background {
