@@ -85,7 +85,7 @@ class TamagotchiStatus extends React.Component {
                     <div className='food-toy-navbar'>
                         <button className="button-circle btn-4" onClick={this.handleLeftFood}>{'<<'}</button>
                         {
-                            this.props.inventory.filter(inventory => inventory.item.category === 'food').length > 0 ?
+                            this.props.inventory && this.props.inventory.filter(inventory => inventory.item.category === 'food').length > 0 ?
                             this.displayFoods().map(inventory => <ItemStatus handleClick={this.props.feedItem} key={inventory.id} {...inventory.item} quantity={inventory.quantity} />) :
                             'Go to the store and buy me food'
                         }
