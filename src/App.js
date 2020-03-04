@@ -93,7 +93,7 @@ class App extends Component {
               return <Redirect to="/user" />
             return <MainContainer user={this.state.user} {...routerProps} statuses={this.state.statuses} logout={this.logout} getStatuses={this.getStatusesNoReroute} />
           }} />
-          <Route render={() => <h1>These are not the routes you are looking for...</h1>} />
+          <Route render={() => <Redirect to="/user" />} />
         </Switch>
       </>
     )
