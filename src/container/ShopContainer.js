@@ -7,7 +7,7 @@ function ShopContainer(props) {
     return (
         <div>
             <div className='shop-home-navbar'>
-                <Link to={`/user/${props.userId}/status/${props.status_id}`}><img className='center-image' src='https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-4/256/home-icon.png' style={{ width: '50px'}} alt="home"></img></Link>
+                <Link to={`/user/${props.userId}/status/${props.status_id}`}><img className='center-image' src='/home.png' style={{ width: '50px'}} alt="home"></img></Link>
                 <h3 className='neon'>${props.money}</h3>
             </div>
             <div className="shop-container">

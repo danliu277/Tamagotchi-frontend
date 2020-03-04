@@ -99,7 +99,7 @@ class TamagotchiStatus extends React.Component {
                         <button className="button-circle btn-4" onClick={this.handleRightToy}>{'>>'}</button>
                     </div>
                         <h4>
-                            <Link to={`/user/${this.props.user.id}/status/${this.props.id}/shop`}><img src='https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/shop-icon.png' style={{width: '50px'}} alt="shop"/></Link>
+                            <Link to={`/user/${this.props.user.id}/status/${this.props.id}/shop`}><img src='/shop.png' style={{width: '50px'}} alt="shop"/></Link>
                         </h4>
                         <h3 className='neon status-money-navbar'>
 
