@@ -73,7 +73,7 @@ class App extends Component {
         .then(statuses => {
           this.setState(() => ({ statuses }))
         })
-    }, 50000)
+    }, 30000)
     this.setState(() => ({ interval }))
   }
 
