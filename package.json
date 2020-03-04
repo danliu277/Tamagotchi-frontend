@@ -2,7 +2,7 @@
   "name": "tamagotchi-frontend",
   "version": "0.1.0",
   "engines": {
-    "node": "13.13.0",
+    "node": "13.3.0",
     "npm": "6.13.1"
   },
   "private": true,
