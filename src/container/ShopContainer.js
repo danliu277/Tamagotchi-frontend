@@ -7,7 +7,7 @@ function ShopContainer(props) {
     return (
         <div>
             <div className='shop-home-navbar center'>
-                <Link to={`/user/${props.userId}/status/${props.status_id}`}><img className='center-image' src='https://www.stickpng.com/assets/images/588a668cd06f6719692a2d1b.png' style={{ width: '50px'}}></img></Link>
+                <Link to={`/user/${props.userId}/status/${props.status_id}`}><img className='center-image' src='https://www.stickpng.com/assets/images/588a668cd06f6719692a2d1b.png' style={{ width: '50px'}} alt="home"></img></Link>
                 <h3>${props.money}</h3>
             </div>
             <div className="shop-container">
