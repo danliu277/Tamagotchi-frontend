@@ -1,12 +1,14 @@
 // headers --> use these at your own discretion
 const headers = {'Content-Type': 'application/json', 'Accepts': 'application/json'}
 // urls
-const usersURL = 'http://localhost:4000/users'
-const loginURL = 'http://localhost:4000/login'
-const tamagotchisURL = 'http://localhost:4000/tamagotchis'
-const statusesURL = 'http://localhost:4000/statuses'
-const itemsURL = 'http://localhost:4000/items'
-const inventoriesURL = 'http://localhost:4000/inventories'
+const url = "https://tamagotchi-simulator.herokuapp.com"
+// const url = "http://localhost:4000"
+const usersURL = `${url}/users`
+const loginURL = `${url}/login`
+const tamagotchisURL = `${url}/tamagotchis`
+const statusesURL = `${url}/statuses`
+const itemsURL = `${url}/items`
+const inventoriesURL = `${url}/inventories`
 // parse incoming data
 const parseData = response => response.json()
 // error handler
