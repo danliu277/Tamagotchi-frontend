@@ -45,7 +45,7 @@ class App extends Component {
         this.setState(() => ({ statuses }), () => {
           if (this.state.statuses && this.state.statuses.length > 0) {
             const status = this.state.statuses.find(status => status.fullness > 0)
-            const statusId = status ? status.id : this.state.status[0].id
+            const statusId = status ? status.id : this.state.statuses[0].id
             this.props.history.push(`/user/${this.state.user.id}/status/${statusId}`)
             this.statusInterval()
           } else {

@@ -11,7 +11,7 @@ class TamagotchiView extends Component {
     }
 
     componentDidUpdate(prop) {
-        if (this.props && ((!prop.status && this.props.status) || (prop.status.id !== this.props.status.id))) {
+        if (this.props && ((!prop.status && this.props.status) || (prop.status && this.props.status && prop.status.id !== this.props.status.id))) {
             const intervalId = this.movement()
             this.setState(() => ({ interval: intervalId }))
             this.stopAnimaton()

@@ -13,7 +13,6 @@ const inventoriesURL = `${url}/inventories`
 const parseData = response => response.json()
 // error handler
 const catchError = error => {
-    debugger
     alert(error)
     console.log(`%c${error}`, 'color: red;')
 }

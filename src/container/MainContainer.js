@@ -17,7 +17,9 @@ class MainContainer extends Component {
 
     componentDidMount() {
         clearInterval(this.state.interval)
-        this.getStatus(this.props.location.pathname.split('/')[4])
+        const id = this.props.location.pathname.split('/')[4]
+        if(id)
+            this.getStatus(id)
         this.unlisten = this.props.history.listen(location => {
             if (location.pathname.includes('status'))
                 this.getStatus(location.pathname.split('/')[4])
