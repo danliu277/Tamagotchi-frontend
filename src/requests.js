@@ -1,8 +1,8 @@
 // headers --> use these at your own discretion
 const headers = {'Content-Type': 'application/json', 'Accepts': 'application/json'}
 // urls
-// const url = "https://tamagotchi-simulator.herokuapp.com"
-const url = "http://localhost:4000"
+const url = "https://tamagotchi-simulator.herokuapp.com"
+// const url = "http://localhost:4000"
 const usersURL = `${url}/users`
 const loginURL = `${url}/login`
 const tamagotchisURL = `${url}/tamagotchis`
