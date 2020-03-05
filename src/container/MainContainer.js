@@ -17,6 +17,7 @@ class MainContainer extends Component {
 
     componentDidMount() {
         clearInterval(this.state.interval)
+        this.statusInterval()
         const id = this.props.location.pathname.split('/')[4]
         if(id)
             this.getStatus(id)
@@ -42,7 +43,7 @@ class MainContainer extends Component {
                 .then(status => {
                     this.setState(() => ({ status }))
                 })
-        }, 50000)
+        }, 30000)
         this.setState(() => ({ interval }))
     }
 
